@@ -4,7 +4,9 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
 import frc.robot.Constants;
-public class Intake {
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class Intake extends SubsystemBase{
     private TalonSRX talonSRX;
     private Solenoid piston;
     private State state;
@@ -35,6 +37,11 @@ public class Intake {
             closePiston();
         else
             openPiston();
+    }
+
+    @Override
+    public void periodic() {
+
     }
 
     public enum State{
