@@ -20,6 +20,23 @@ public class Intake {
         talonSRX.set(ControlMode.PercentOutput,power);
     }
 
+    public void openPiston(){
+        piston.set(true);
+        state = State.OPENED;
+    }
+
+    public void closePiston(){
+        piston.set(false);
+        state = State.CLOSED;
+    }
+
+    public void togglePiston(){
+        if(state == State.OPENED)
+            closePiston();
+        else
+            openPiston();
+    }
+
     public enum State{
         OPENED,
         CLOSED;
