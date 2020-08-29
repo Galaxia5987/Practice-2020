@@ -5,8 +5,8 @@ import frc.robot.subsystems.Intake.Intake;
 
 public class MoveIntake extends CommandBase{
     private Intake intake;
-    public MoveIntake(Intake intake) {
-        intake = intake;
+    public MoveIntake(Intake i) {
+        intake = i;
     }
 
     @Override
