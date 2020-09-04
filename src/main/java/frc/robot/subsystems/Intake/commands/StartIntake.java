@@ -5,13 +5,14 @@ import frc.robot.subsystems.Intake.Intake;
 
 public class StartIntake extends CommandBase{
     private Intake intake;
-    
+
     public StartIntake(Intake i) {
         intake = i;
     }
 
     @Override
     public void initialize() {
+        intake.setPower(0.3);
     }
 
     @Override
