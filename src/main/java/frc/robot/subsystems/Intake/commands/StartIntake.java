@@ -22,7 +22,7 @@ public class StartIntake extends CommandBase{
 
     @Override
     public void end(boolean interrupted) {
-
+        intake.setPower(0.0);
     }
 
     @Override
