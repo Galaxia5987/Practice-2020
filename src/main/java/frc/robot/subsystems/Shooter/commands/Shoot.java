@@ -10,4 +10,11 @@ public class Shoot extends CommandBase {
         this.shooter = shooter;
         this.power = power;
     }
+
+    @Override
+    public void initialize() {
+        this.shooter.setPower(this.power);
+    }
+
+    
 }
