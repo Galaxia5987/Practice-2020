@@ -5,8 +5,8 @@ import frc.robot.subsystems.Shooter.Shooter;
 
 public class Shoot extends CommandBase {
     private Shooter shooter;
-    private int power;
-    public Shoot(Shooter shooter,int power) {
+    private double power;
+    public Shoot(Shooter shooter,double power) {
         this.shooter = shooter;
         this.power = power;
     }
@@ -19,5 +19,10 @@ public class Shoot extends CommandBase {
     @Override
     public boolean isFinished() {
         return false;
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+        this.shooter.setPower(0.0);
     }
 }
