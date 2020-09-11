@@ -16,5 +16,8 @@ public class Shoot extends CommandBase {
         this.shooter.setPower(this.power);
     }
 
-    
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
 }
