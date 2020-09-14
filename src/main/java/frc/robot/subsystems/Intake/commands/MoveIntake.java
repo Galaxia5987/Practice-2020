@@ -3,15 +3,18 @@ package frc.robot.subsystems.Intake.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake.Intake;
 
+/**
+ * this command controls the Intake's Piston
+ */
 public class MoveIntake extends CommandBase{
-    private Intake intake;
+    private Intake intake;//the Intake subsystem
     public MoveIntake(Intake i) {
         intake = i;
     }
 
     @Override
     public void initialize() {
-        intake.togglePiston();
+        intake.togglePiston();// calls the Intake's togglePiston function
     }
 
     @Override
