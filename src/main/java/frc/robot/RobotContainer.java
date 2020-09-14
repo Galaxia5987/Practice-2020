@@ -24,8 +24,8 @@ import frc.robot.subsystems.Intake.commands.*;
 public class RobotContainer {
   public Intake intake = new Intake();
   public XboxController Xbox = new XboxController(1);
-  public JoystickButton RB = new JoystickButton(Xbox, XboxController.Button.kBumperRight.value);
-  public JoystickButton a = new JoystickButton(Xbox, XboxController.Button.kA.value);
+  public JoystickButton y = new JoystickButton(Xbox, XboxController.Button.kY.value);
+  public JoystickButton x = new JoystickButton(Xbox, XboxController.Button.kX.value);
   // The robot's subsystems and commands are defined here...
 
 
@@ -44,8 +44,8 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    RB.whileHeld(new StartIntake(intake,0.4));
-    a.whenPressed(new MoveIntake(intake));
+    x.whileHeld(new StartIntake(intake,0.4));
+    y.whenPressed(new MoveIntake(intake));
   }
 
 
