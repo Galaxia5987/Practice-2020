@@ -6,6 +6,12 @@ import frc.robot.subsystems.Shooter.Shooter;
 public class Shoot extends CommandBase {
     private Shooter shooter;
     private double power;
+
+    /**
+     * @param shooter - the Shooter Subsystem
+     * @param power - power output (%)
+     * Contractor
+     */
     public Shoot(Shooter shooter,double power) {
         this.shooter = shooter;
         this.power = power;
@@ -13,7 +19,7 @@ public class Shoot extends CommandBase {
 
     @Override
     public void initialize() {
-        this.shooter.setPower(this.power);
+        this.shooter.setPower(this.power); // calls Shooter's setPower function
     }
 
     @Override
@@ -23,6 +29,6 @@ public class Shoot extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        this.shooter.setPower(0.0);
+        this.shooter.setPower(0.0);// sets  the power of the Shooter's motors to 0
     }
 }
