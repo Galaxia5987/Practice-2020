@@ -21,5 +21,6 @@ public final class Constants {
         public static final int VICTOR1 = 1;
         public static final int VICTOR2 = 2;
         public static final boolean IS_INVERTED = false;
+        public static final double TICKS_PER_ROTATION = 4096;
     }
 }
