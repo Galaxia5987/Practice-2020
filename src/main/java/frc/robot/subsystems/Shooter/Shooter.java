@@ -24,8 +24,10 @@ public class Shooter extends SubsystemBase {
         getVictorSPX2.follow(talonFX);// make side2 follow main motor
         getVictorSPX2.setInverted(Constants.Shooter.IS_INVERTED);// set motor inverted (by constant)
 
-        side2 = new VictorSPX(Constants.Shooter.VICTOR2);// connect side2 to it's motor (by constant)
-        side2.follow(main);// make side2 follow main motor
+        talonFX.config_kP(Constants.Shooter.PID_SLOT,Constants.Shooter.KP);
+        talonFX.config_kI(Constants.Shooter.PID_SLOT,Constants.Shooter.KI);
+        talonFX.config_kD(Constants.Shooter.PID_SLOT,Constants.Shooter.KD);
+        talonFX.config_kF(Constants.Shooter.PID_SLOT,Constants.Shooter.KF);
     }
 
     /**
