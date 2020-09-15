@@ -7,19 +7,22 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
-    private TalonFX main; // main motor
-    private VictorSPX side1;// side motor 1
-    private VictorSPX side2; // side motor 2
+    private TalonFX talonFX = new TalonFX(Constants.Shooter.TALON);// connect talonFX to it's motor (by constant)
+    private VictorSPX victorSPX1 = new VictorSPX(Constants.Shooter.VICTOR1);// connect VictorSPX1 to it's motor (by constant);
+    private VictorSPX getVictorSPX2 = new VictorSPX(Constants.Shooter.VICTOR2);// connect VictorSPX2 to it's motor (by constant);
+    private final UnitModel rpsUnitModel = new UnitModel(Constants.Shooter.TICKS_PER_ROTATION);
 
     /**
      * Contractor
      */
     public Shooter(){
-        main = new TalonFX(Constants.Shooter.TALON);// connect main to it's motor (by constant)
-        main.setInverted(Constants.Shooter.IS_INVERTED);// set main inverted (by constant)
+        talonFX.setInverted(Constants.Shooter.IS_INVERTED);// set motor inverted (by constant)
 
-        side1 = new VictorSPX(Constants.Shooter.VICTOR1);// connect side1 to it's motor (by constant)
-        side1.follow(main);// make side1 follow main motor
+        victorSPX1.follow(talonFX);// make side1 follow main motor
+        victorSPX1.setInverted(Constants.Shooter.IS_INVERTED);// set motor inverted (by constant)
+
+        getVictorSPX2.follow(talonFX);// make side2 follow main motor
+        getVictorSPX2.setInverted(Constants.Shooter.IS_INVERTED);// set motor inverted (by constant)
 
         side2 = new VictorSPX(Constants.Shooter.VICTOR2);// connect side2 to it's motor (by constant)
         side2.follow(main);// make side2 follow main motor
@@ -30,6 +33,6 @@ public class Shooter extends SubsystemBase {
      * this function activates Shooter's motors
      */
     public void setPower (double power){
-        main.set(ControlMode.PercentOutput,power);
+        talonFX.set(ControlMode.PercentOutput,power);
     }
 }
