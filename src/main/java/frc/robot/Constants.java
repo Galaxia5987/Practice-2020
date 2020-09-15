@@ -17,9 +17,9 @@ package frc.robot;
  */
 public final class Constants {
     public class Shooter{
-        public static final int Talon = 0;
-        public static final int victor1 = 1;
-        public static final int victor2 = 2;
-        public static final boolean isInverted = false;
+        public static final int TALON = 0;
+        public static final int VICTOR1 = 1;
+        public static final int VICTOR2 = 2;
+        public static final boolean IS_INVERTED = false;
     }
 }
