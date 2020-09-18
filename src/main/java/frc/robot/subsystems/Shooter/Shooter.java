@@ -18,13 +18,13 @@ public class Shooter extends SubsystemBase {
         /**
          * Class constructor
          */
-        talonFX.setInverted(Constants.Shooter.IS_INVERTED);// set motor inverted (by constant)
+        talonFX.setInverted(Constants.Shooter.IS_INVERTED);
 
         victorSPX1.follow(talonFX);
-        victorSPX1.setInverted(Constants.Shooter.IS_INVERTED);// set motor inverted (by constant)
+        victorSPX1.setInverted(Constants.Shooter.IS_INVERTED);
 
         getVictorSPX2.follow(talonFX);
-        getVictorSPX2.setInverted(Constants.Shooter.IS_INVERTED);// set motor inverted (by constant)
+        getVictorSPX2.setInverted(Constants.Shooter.IS_INVERTED);
 
         talonFX.config_kP(Constants.Shooter.PID_SLOT,Constants.Shooter.KP);
         talonFX.config_kI(Constants.Shooter.PID_SLOT,Constants.Shooter.KI);
@@ -35,8 +35,8 @@ public class Shooter extends SubsystemBase {
 
     public void setPower (double power){
         /**
-         * @param power: the power output (%)
          * this function activates Shooter's motors
+         * @param power: the power output (%)
          */
         talonFX.set(ControlMode.PercentOutput,power);
     }
