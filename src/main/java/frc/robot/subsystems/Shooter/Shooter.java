@@ -32,6 +32,9 @@ public class Shooter extends SubsystemBase {
         talonFX.config_kF(Constants.Shooter.PID_SLOT,Constants.Shooter.KF);
     }
 
+    public int getVelocity(){
+        return talonFX.getSelectedSensorVelocity();
+    }
 
     public void setPower (double power){
         /**
