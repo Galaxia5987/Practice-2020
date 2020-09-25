@@ -36,6 +36,11 @@ public class Shooter extends SubsystemBase {
         master.config_kF(Constants.Shooter.PID_SLOT,Constants.Shooter.KF);
     }
 
+    public double getVelocity(){
+        return UnitModel.toVelocity(master.getSelectedSensorVelocity());
+    }
+
+    
     /**
      * this function activates Shooter's motors
      * @param Velocity: the velocity output
