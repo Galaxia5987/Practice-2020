@@ -5,14 +5,14 @@ import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.subsystems.Shooter.Shooter;
 
 /**
- * this command activates the shooter subsystem based on power
+ * this command activates the shooter subsystem
  */
-public class PowerShoot extends CommandBase {
+public class Shoot extends CommandBase {
     private Shooter shooter;
     private double power;
 
 
-    public PowerShoot(Shooter shooter, double power) {
+    public Shoot(Shooter shooter,double power) {
         /**
          * Command Constructor
          * @param shooter - the Shooter Subsystem
