@@ -28,13 +28,13 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public void setPower(double powerRight, double powerLeft) {
-        drivetrainMasterRight1.set(ControlMode.PercentOutput,powerRight);
-        drivetrainMasterLeft1.set(ControlMode.PercentOutput,powerLeft);
+        drivetrainMasterRight1.set(ControlMode.PercentOutput, powerRight);
+        drivetrainMasterLeft1.set(ControlMode.PercentOutput, powerLeft);
     }
 
     public void setVelocity(double velocityRight, double velocityLeft) {
-        drivetrainMasterRight1.set(ControlMode.Velocity,velocityRight);
-        drivetrainMasterLeft1.set(ControlMode.Velocity,velocityLeft);
+        drivetrainMasterRight1.set(ControlMode.Velocity, velocityRight);
+        drivetrainMasterLeft1.set(ControlMode.Velocity, velocityLeft);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Drivetrain extends SubsystemBase {
     }
 
     public double getAcceleration() {
-        return Robot.navx.getWorldLinearAccelY()* Constants.g;
+        return Robot.navx.getWorldLinearAccelY() * Constants.g;
     }
 
 
