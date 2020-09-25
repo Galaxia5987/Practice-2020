@@ -40,7 +40,10 @@ public class Shooter extends SubsystemBase {
         return UnitModel.toVelocity(master.getSelectedSensorVelocity());
     }
 
-    
+    public boolean isReady(double velocity){
+        return UnitModel.toVelocity(master.getSelectedSensorVelocity()) == velocity;
+    }
+
     /**
      * this function activates Shooter's motors
      * @param Velocity: the velocity output
