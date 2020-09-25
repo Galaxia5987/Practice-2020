@@ -38,10 +38,10 @@ public class Shooter extends SubsystemBase {
 
     /**
      * this function activates Shooter's motors
-     * @param power: the power output (%)
+     * @param Velocity: the velocity output
      */
-    public void setPower (double power){
+    public void setPower (double Velocity){
 
-        master.set(ControlMode.PercentOutput,power);
+        master.set(ControlMode.Velocity,Velocity);
     }
 }
