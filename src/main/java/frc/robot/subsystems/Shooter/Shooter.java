@@ -35,18 +35,24 @@ public class Shooter extends SubsystemBase {
         master.config_kD(Constants.Shooter.PID_SLOT,Constants.Shooter.KD);
         master.config_kF(Constants.Shooter.PID_SLOT,Constants.Shooter.KF);
     }
-
+    
     public double getVelocity(){
         return UnitModel.toVelocity(master.getSelectedSensorVelocity());
     }
 
-    
+    /**
+     * @param velocity: the target velocity
+     * @return if the shooter is working in the target velocity
+     */
+    public boolean isReady(double velocity){
+        return UnitModel.toVelocity(master.getSelectedSensorVelocity()) == velocity;
+    }
+
     /**
      * this function activates Shooter's motors
      * @param Velocity: the velocity output
      */
     public void setPower (double Velocity){
-
         master.set(ControlMode.Velocity,Velocity);
     }
 }
