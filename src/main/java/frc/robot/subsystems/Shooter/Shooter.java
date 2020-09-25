@@ -14,10 +14,14 @@ public class Shooter extends SubsystemBase {
     private VictorSPX slave2 = new VictorSPX(Ports.Shooter.SLAVE2);
     private final UnitModel UnitModel = new UnitModel(Constants.Shooter.TICKS_PER_ROTATION);
 
+    /**
+     * this constructor:
+     *  -sets motors inverted
+     *  -makes slaves to follow master
+     *  -sets PID constants
+     */
     public Shooter(){
-        /**
-         * Class constructor
-         */
+
         master.setInverted(Constants.Shooter.IS_INVERTED);
 
         slave1.follow(master);
@@ -32,11 +36,12 @@ public class Shooter extends SubsystemBase {
         master.config_kF(Constants.Shooter.PID_SLOT,Constants.Shooter.KF);
     }
 
+    /**
+     * this function activates Shooter's motors
+     * @param power: the power output (%)
+     */
     public void setPower (double power){
-        /**
-         * this function activates Shooter's motors
-         * @param power: the power output (%)
-         */
+
         master.set(ControlMode.PercentOutput,power);
     }
 }
