@@ -17,4 +17,11 @@ package frc.robot;
  */
 public final class Constants {
     public static final double g=9.806;
+    public static class Turret
+    {
+        public static int TALON_TIMEOUT = 10;
+
+        public static int ticksPerDegree = 0;
+
+    }
 }
