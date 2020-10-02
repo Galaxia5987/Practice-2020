@@ -21,7 +21,6 @@ public final class Constants {
     {
         public static int TALON_TIMEOUT = 10;
 
-        public static int ticksPerDegree = 0;
-
+        public static int TICKS_PER_DEGREE = 0;
     }
 }

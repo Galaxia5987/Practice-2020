@@ -3,7 +3,6 @@ package frc.robot.subsystems.turret;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.UnitModel;
@@ -14,7 +13,7 @@ public class Turret extends SubsystemBase {
 
     public Turret() {
         turretMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.Turret.TALON_TIMEOUT);
-        unitModel = new UnitModel(Constants.Turret.ticksPerDegree);
+        unitModel = new UnitModel(Constants.Turret.TICKS_PER_DEGREE);
     }
 
     public void setAngle(double angle) {
