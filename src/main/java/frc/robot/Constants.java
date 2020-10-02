@@ -16,11 +16,19 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final double g=9.806;
-    public static class Turret
-    {
+    public static final double g = 9.806;
+
+    public static class Turret {
         public static int TALON_TIMEOUT = 10;
 
         public static int TICKS_PER_DEGREE = 0;
+
+        public static int TURRET_JOYSTICK_DEGREES = 15; //angle the turret will move in accordance to joystick position (0%-100%) every 40ms.
+
+        public static double KP = 0;
+
+        public static  double KI = 0;
+
+        public static double KD = 0;
     }
 }
