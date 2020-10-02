@@ -30,5 +30,7 @@ public final class Constants {
         public static  double KI = 0;
 
         public static double KD = 0;
+
+        public static double TOLERANCE = 1;
     }
 }
