@@ -4,46 +4,82 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.Ports;
 import frc.robot.Robot;
+import frc.robot.subsystems.UnitModel;
 
+/**
+ * Build 4 motors, 2 for each side.
+ */
 public class Drivetrain extends SubsystemBase {
-    private final TalonFX drivetrainMasterRight1 = new TalonFX(1);
-    private final TalonFX drivetrainMasterRight2 = new TalonFX(2);
-    private final TalonFX drivetrainMasterLeft1 = new TalonFX(3);
-    private final TalonFX drivetrainMasterLeft2 = new TalonFX(4);
+    private final TalonFX masterRight = new TalonFX(Ports.Drivetrain.MASTER_RIGHT);
+    private final TalonFX slaveRight = new TalonFX(Ports.Drivetrain.SLAVE_RIGHT);
+    private final TalonFX masterLeft = new TalonFX(Ports.Drivetrain.MASTER_LEFT);
+    private final TalonFX slaveLeft = new TalonFX(Ports.Drivetrain.SLAVE_LEFT);
+    private UnitModel unitModel = new UnitModel(Constants.Drivetrain.TICKS_PER_METER);
 
+    /**
+     * Invert masterRight motor and set both slaves to follow.
+     */
     public Drivetrain() {
-        drivetrainMasterRight1.setInverted(true);
-        drivetrainMasterRight2.follow(drivetrainMasterRight1);
-        drivetrainMasterLeft1.setInverted(false);
-        drivetrainMasterLeft2.follow(drivetrainMasterLeft1);
+        masterRight.setInverted(true);
+        slaveRight.follow(masterRight);
+        masterLeft.setInverted(false);
+        slaveLeft.follow(masterLeft);
     }
 
+    /**
+     * Get speed of right drivetrain.
+     *
+     * @return speed of right drivetrain in [meters/second].
+     */
     public double getSpeedRight() {
-        return drivetrainMasterRight1.getSelectedSensorVelocity();
+        return unitModel.toVelocity(masterRight.getSelectedSensorVelocity());
     }
 
+    /**
+     * Get speed of left drivetrain.
+     *
+     * @return speed of left drivetrain in [meters/second].
+     */
     public double getSpeedLeft() {
-        return drivetrainMasterLeft1.getSelectedSensorVelocity();
+        return unitModel.toVelocity(masterLeft.getSelectedSensorVelocity());
     }
 
+    /**
+     * Set power for drivetrain.
+     *
+     * @param powerRight right power [(-1) - 1].
+     * @param powerLeft  left power [(-1) - 1].
+     */
     public void setPower(double powerRight, double powerLeft) {
-        drivetrainMasterRight1.set(ControlMode.PercentOutput, powerRight);
-        drivetrainMasterLeft1.set(ControlMode.PercentOutput, powerLeft);
+        masterRight.set(ControlMode.PercentOutput, powerRight);
+        masterLeft.set(ControlMode.PercentOutput, powerLeft);
     }
 
+    /**
+     * Set velocity of drivetrain.
+     *
+     * @param velocityRight right velocity [meters/second].
+     * @param velocityLeft  left velocity [meters/second].
+     */
     public void setVelocity(double velocityRight, double velocityLeft) {
-        drivetrainMasterRight1.set(ControlMode.Velocity, velocityRight);
-        drivetrainMasterLeft1.set(ControlMode.Velocity, velocityLeft);
+        masterRight.set(ControlMode.Velocity, unitModel.toTicks100ms(velocityRight));
+        masterLeft.set(ControlMode.Velocity, unitModel.toTicks100ms(velocityLeft));
+    }
+
+    /**
+     * Get acceleration of drivetrain.
+     *
+     * @return acceleration of drivetrain in [meters/seconds^2].
+     */
+    public double getAcceleration() {
+        return Robot.navx.getWorldLinearAccelY() * Constants.g;
     }
 
     @Override
     public void periodic() {
 
-    }
-
-    public double getAcceleration() {
-        return Robot.navx.getWorldLinearAccelY() * Constants.g;
     }
 
 
