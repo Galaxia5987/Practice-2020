@@ -5,12 +5,19 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.drivetrain.Drivetrain;
 
+/**
+ * Define drivetrain.
+ */
 public class JoystickDrive extends CommandBase {
     private Drivetrain drivetrain;
 
-
+    /**
+     * Build drivetrain and add.
+     *
+     * @param drivetrain drivetrain.
+     */
     public JoystickDrive(Drivetrain drivetrain) {
-        this.drivetrain=drivetrain;
+        this.drivetrain = drivetrain;
         addRequirements(drivetrain);
     }
 
@@ -19,11 +26,14 @@ public class JoystickDrive extends CommandBase {
 
     }
 
+    /**
+     * Set power of right and left drivetrain.
+     */
     @Override
     public void execute() {
         double rightPower = RobotContainer.r.getY();
         double leftPower = RobotContainer.l.getY();
-        drivetrain.setPower(rightPower,leftPower);
+        drivetrain.setPower(rightPower, leftPower);
     }
 
     @Override
@@ -31,8 +41,9 @@ public class JoystickDrive extends CommandBase {
         return false;
     }
 
+
     @Override
     public void end(boolean interrupted) {
-        drivetrain.setPower(0,0);
+        drivetrain.setPower(0, 0);
     }
 }
