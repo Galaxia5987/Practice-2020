@@ -8,12 +8,15 @@ import frc.robot.Constants;
 import frc.robot.subsystems.UnitModel;
 
 public class Turret extends SubsystemBase {
-    private final TalonSRX turretMaster = new TalonSRX(1);
+    private final TalonSRX master = new TalonSRX(1);
     private UnitModel unitModel;
 
     public Turret() {
-        turretMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.Turret.TALON_TIMEOUT);
+        master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.Turret.TALON_TIMEOUT);
         unitModel = new UnitModel(Constants.Turret.TICKS_PER_DEGREE);
+        master.config_kP(0, Constants.Turret.KP, Constants.Turret.TALON_TIMEOUT);
+        master.config_kI(0, Constants.Turret.KI, Constants.Turret.TALON_TIMEOUT);
+        master.config_kD(0, Constants.Turret.KD, Constants.Turret.TALON_TIMEOUT);
     }
 
     public void setAngle(double angle) {
@@ -28,23 +31,22 @@ public class Turret extends SubsystemBase {
                 addAngle = option1;
             else
                 addAngle = option2;
-        }
-        else {
+        } else {
             if (Math.abs(option3) < Math.abs(option4))
                 addAngle = option3;
             else
                 addAngle = option4;
         }
 
-        turretMaster.set(ControlMode.Position, unitModel.toUnits(addAngle));
+        master.set(ControlMode.Position, unitModel.toUnits(addAngle));
     }
 
     public double getSpeed() {
-        return unitModel.toVelocity(turretMaster.getSelectedSensorVelocity());
+        return unitModel.toVelocity(master.getSelectedSensorVelocity());
     }
 
     public double getPosition() {
-        return unitModel.toUnits(turretMaster.getSelectedSensorPosition());
+        return unitModel.toUnits(master.getSelectedSensorPosition());
     }
 
     public void periodic() {
