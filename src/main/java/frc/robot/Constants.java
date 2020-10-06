@@ -16,8 +16,7 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public class Shooter{
-        public static final boolean IS_INVERTED = false;
+    public class Shooter {
         public static final double TICKS_PER_ROTATION = 4096;
         public static final int PID_SLOT = 0;
         public static final double KP = 0;

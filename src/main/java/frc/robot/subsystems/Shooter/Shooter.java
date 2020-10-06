@@ -22,13 +22,13 @@ public class Shooter extends SubsystemBase {
      */
     public Shooter() {
 
-        master.setInverted(Constants.Shooter.IS_INVERTED);
+        master.setInverted(Ports.Shooter.IS_INVERTED_MASTER);
 
         slave1.follow(master);
-        slave1.setInverted(Constants.Shooter.IS_INVERTED);
+        slave1.setInverted(Ports.Shooter.IS_INVERTED_SLAVE1);
 
         slave2.follow(master);
-        slave2.setInverted(Constants.Shooter.IS_INVERTED);
+        slave2.setInverted(Ports.Shooter.IS_INVERTED_SLAVE2);
 
         master.config_kP(Constants.Shooter.PID_SLOT, Constants.Shooter.KP);
         master.config_kI(Constants.Shooter.PID_SLOT, Constants.Shooter.KI);
