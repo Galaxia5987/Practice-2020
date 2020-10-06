@@ -21,22 +21,41 @@ public class Turret extends SubsystemBase {
     }
 
     public void setAngle(double angle) {
+        if (angle > 360) {
+            angle = angle - 360;
+        }
+        if (angle < 0) {
+            angle = angle + 360;
+        }
+        if (angle >= 270 && angle <= 320)
+            return;
+
         double addAngle = 0;
         double myAngle = getPosition();
-        double option1 = angle - myAngle;
-        double option2 = -myAngle - (360 - angle);
-        double option3 = myAngle - angle;
-        double option4 = 360 - myAngle;
+        double option1 = angle - myAngle; //delta angle is positive clockwise
+        double option2 = -myAngle - (360 - angle); //delta angle is positive anti-clockwise
+        double option3 = -(myAngle - angle); //delta angle is negative anti-clockwise
+        double option4 = 360 - myAngle + angle; //delta angle is negative clockwise
         if (angle > myAngle) {
             if (Math.abs(option1) < Math.abs(option2))
-                addAngle = option1;
+                if(!(angle>320 && myAngle <270))
+                    addAngle = option1;
+                else
+                    addAngle = option2;
             else
-                addAngle = option2;
+                if(angle >320)
+                    addAngle = option2;
         } else {
             if (Math.abs(option3) < Math.abs(option4))
-                addAngle = option3;
+                if(!(myAngle>320 && angle <320))
+                    addAngle = option3;
+                else
+                    addAngle = option4;
             else
-                addAngle = option4;
+                if(angle < 270 && myAngle >320)
+                    addAngle = option4;
+                else
+                    addAngle = option4;
         }
 
         master.set(ControlMode.Position, unitModel.toUnits(addAngle));
