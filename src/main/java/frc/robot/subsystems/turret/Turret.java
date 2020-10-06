@@ -5,10 +5,11 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import frc.robot.Ports;
 import frc.robot.subsystems.UnitModel;
 
 public class Turret extends SubsystemBase {
-    private final TalonSRX master = new TalonSRX(1);
+    private final TalonSRX master = new TalonSRX(Ports.Turret.MASTER);
     private UnitModel unitModel;
 
     public Turret() {

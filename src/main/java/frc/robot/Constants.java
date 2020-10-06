@@ -23,7 +23,7 @@ public final class Constants {
 
         public static int TICKS_PER_DEGREE = 0;
 
-        public static int TURRET_JOYSTICK_DEGREES = 15; //angle the turret will move in accordance to joystick position (0%-100%) every 20ms.
+        public static int TURRET_JOYSTICK_DEGREES = 15; //angle of the turret will move in accordance to joystick position (0%-100%) every 20ms.
 
         public static double KP = 0;
 
