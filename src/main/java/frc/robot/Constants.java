@@ -19,7 +19,7 @@ public final class Constants {
     public class Shooter{
         public static final boolean IS_INVERTED = false;
         public static final double TICKS_PER_ROTATION = 4096;
-        public static final int PID_SLOT = 3;
+        public static final int PID_SLOT = 0;
         public static final double KP = 0;
         public static final double KI = 0;
         public static final double KD = 0;
