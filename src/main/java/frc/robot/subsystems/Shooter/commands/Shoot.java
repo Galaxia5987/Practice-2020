@@ -9,22 +9,22 @@ import frc.robot.subsystems.Shooter.Shooter;
  */
 public class Shoot extends CommandBase {
     private Shooter shooter;
-    private double power;
+    private double velocity;
 
 
-    public Shoot(Shooter shooter,double power) {
+    public Shoot(Shooter shooter,double velocity) {
         /**
          * Command Constructor
          * @param shooter - the Shooter Subsystem
-         * @param power - power output (%)
+         * @param power - target velocity
          */
         this.shooter = shooter;
-        this.power = power;
+        this.velocity = velocity;
     }
 
     @Override
     public void initialize() {
-        this.shooter.setPower(this.power); // calls Shooter's setPower function
+        this.shooter.setPower(this.velocity); // calls Shooter's setPower function
     }
 
     @Override
