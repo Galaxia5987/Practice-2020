@@ -16,11 +16,11 @@ public class Shooter extends SubsystemBase {
 
     /**
      * this constructor:
-     *  -sets motors inverted
-     *  -makes slaves to follow master
-     *  -sets PID constants
+     * -sets motors inverted
+     * -makes slaves to follow master
+     * -sets PID constants
      */
-    public Shooter(){
+    public Shooter() {
 
         master.setInverted(Constants.Shooter.IS_INVERTED);
 
@@ -30,13 +30,13 @@ public class Shooter extends SubsystemBase {
         slave2.follow(master);
         slave2.setInverted(Constants.Shooter.IS_INVERTED);
 
-        master.config_kP(Constants.Shooter.PID_SLOT,Constants.Shooter.KP);
-        master.config_kI(Constants.Shooter.PID_SLOT,Constants.Shooter.KI);
-        master.config_kD(Constants.Shooter.PID_SLOT,Constants.Shooter.KD);
-        master.config_kF(Constants.Shooter.PID_SLOT,Constants.Shooter.KF);
+        master.config_kP(Constants.Shooter.PID_SLOT, Constants.Shooter.KP);
+        master.config_kI(Constants.Shooter.PID_SLOT, Constants.Shooter.KI);
+        master.config_kD(Constants.Shooter.PID_SLOT, Constants.Shooter.KD);
+        master.config_kF(Constants.Shooter.PID_SLOT, Constants.Shooter.KF);
     }
-    
-    public double getVelocity(){
+
+    public double getVelocity() {
         return UnitModel.toVelocity(master.getSelectedSensorVelocity());
     }
 
@@ -44,15 +44,17 @@ public class Shooter extends SubsystemBase {
      * @param velocity: the target velocity
      * @return if the shooter is working in the target velocity
      */
-    public boolean isReady(double velocity){
-        return UnitModel.toVelocity(master.getSelectedSensorVelocity()) == velocity;
+    public boolean isReady(double velocity) {
+        double error = UnitModel.toVelocity(master.getSelectedSensorVelocity()) - velocity;
+        return 1.1 > error && error > 0.9;
     }
 
     /**
      * this function activates Shooter's motors
+     *
      * @param Velocity: the velocity output
      */
-    public void setPower (double Velocity){
-        master.set(ControlMode.Velocity,Velocity);
+    public void setPower(double Velocity) {
+        master.set(ControlMode.Velocity, Velocity);
     }
 }
