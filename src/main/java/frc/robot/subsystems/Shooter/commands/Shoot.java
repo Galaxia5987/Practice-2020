@@ -34,7 +34,7 @@ public class Shoot extends CommandBase {
 
     @Override
     public void execute() {
-        shooter.setPower(getOptimalSpeed());
+        shooter.setVelocity(getOptimalSpeed());
     }
 
     @Override
@@ -44,6 +44,6 @@ public class Shoot extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        this.shooter.setPower(0.0);// sets  the power of the Shooter's motors to 0
+        this.shooter.setVelocity(0.0);// sets  the power of the Shooter's motors to 0
     }
 }

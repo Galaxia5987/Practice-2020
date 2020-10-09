@@ -48,10 +48,10 @@ public class Shooter extends SubsystemBase {
     }
 
     /**
-     * Activates Shooter's motors.
-     * @param Velocity: the velocity output (m/s).
+     * sets shooter's velocity.
+     * @param velocity: the velocity output (m/s).
      */
-    public void setPower(double Velocity) {
-        master.set(ControlMode.Velocity, Velocity);
+    public void setVelocity(double velocity) {
+        master.set(ControlMode.Velocity, velocity);
     }
 }
