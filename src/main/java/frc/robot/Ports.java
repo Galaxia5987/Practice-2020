@@ -8,6 +8,7 @@ public class Ports {
         public static final int SLAVE_RIGHT = 2;
         public static final int MASTER_LEFT = 3;
         public static final int SLAVE_LEFT = 4;
+        public static final int SOLENOID = 1;
 
     }
 
