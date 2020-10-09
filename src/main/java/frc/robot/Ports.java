@@ -1,7 +1,7 @@
 package frc.robot;
 
 public class Ports {
-    public class Shooter {
+    public static final class Shooter {
         public static final boolean IS_INVERTED_MASTER = false;
         public static final boolean IS_INVERTED_SLAVE1 = false;
         public static final boolean IS_INVERTED_SLAVE2 = false;
