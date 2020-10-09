@@ -1,6 +1,7 @@
 package frc.robot.subsystems.shooter;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -33,6 +34,7 @@ public class Shooter extends SubsystemBase {
         master.config_kD(Constants.Shooter.PID_SLOT, Constants.Shooter.KD);
         master.config_kF(Constants.Shooter.PID_SLOT, Constants.Shooter.KF);
 
+        master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
         master.setSensorPhase(Ports.Shooter.IS_INVERTED_MASTER);
     }
 
