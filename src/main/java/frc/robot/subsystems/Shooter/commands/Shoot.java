@@ -20,6 +20,13 @@ public class Shoot extends CommandBase {
         this.velocity = velocity;
     }
 
+    /**
+     * calculates optimal speed for intake
+     */
+    private double getOptimalSpeed(){
+        return 1.1;
+    }
+
     @Override
     public void initialize() {
         this.shooter.setPower(this.velocity); // calls Shooter's setPower function
