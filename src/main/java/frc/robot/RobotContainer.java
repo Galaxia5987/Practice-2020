@@ -21,7 +21,7 @@ import frc.robot.subsystems.shooter.commands.Shoot;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  public Shooter shooter = new Shooter();
+  public final Shooter shooter = new Shooter();
   public XboxController Xbox = new XboxController(1);
   public JoystickButton a = new JoystickButton(Xbox, XboxController.Button.kA.value);
   // The robot's subsystems and commands are defined here...
