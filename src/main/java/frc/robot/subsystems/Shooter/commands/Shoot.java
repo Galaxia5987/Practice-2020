@@ -1,7 +1,7 @@
-package frc.robot.subsystems.Shooter.commands;
+package frc.robot.subsystems.shooter.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Shooter.Shooter;
+import frc.robot.subsystems.shooter.Shooter;
 
 /**
  * activates the shooter subsystem based on distance.

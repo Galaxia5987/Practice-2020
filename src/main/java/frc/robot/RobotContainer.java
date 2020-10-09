@@ -11,9 +11,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.subsystems.ExampleSubsystem.ExampleSubsystem;
-import frc.robot.subsystems.Shooter.Shooter;
-import frc.robot.subsystems.Shooter.commands.Shoot;
+import frc.robot.subsystems.shooter.Shooter;
+import frc.robot.subsystems.shooter.commands.Shoot;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
