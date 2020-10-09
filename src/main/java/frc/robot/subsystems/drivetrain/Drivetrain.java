@@ -2,6 +2,7 @@ package frc.robot.subsystems.drivetrain;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.Ports;
@@ -16,7 +17,9 @@ public class Drivetrain extends SubsystemBase {
     private final TalonFX slaveRight = new TalonFX(Ports.Drivetrain.SLAVE_RIGHT);
     private final TalonFX masterLeft = new TalonFX(Ports.Drivetrain.MASTER_LEFT);
     private final TalonFX slaveLeft = new TalonFX(Ports.Drivetrain.SLAVE_LEFT);
-    private UnitModel unitModel = new UnitModel(Constants.Drivetrain.TICKS_PER_METER);
+    public UnitModel highGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER);
+    private UnitModel lowGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_2);
+    private Solenoid piston = new Solenoid(Ports.Drivetrain.SOLENOID);
 
     /**
      * Invert masterRight motor and set both slaves to follow.
@@ -28,13 +31,20 @@ public class Drivetrain extends SubsystemBase {
         slaveLeft.follow(masterLeft);
     }
 
+    public UnitModel getUnitModel() {
+        if (getPiston()) {
+            return highGear;
+        } else
+            return lowGear;
+    }
+
     /**
      * Get speed of right drivetrain.
      *
      * @return speed of right drivetrain in [meters/second].
      */
     public double getSpeedRight() {
-        return unitModel.toVelocity(masterRight.getSelectedSensorVelocity());
+        return getUnitModel().toVelocity(masterRight.getSelectedSensorVelocity());
     }
 
     /**
@@ -43,7 +53,7 @@ public class Drivetrain extends SubsystemBase {
      * @return speed of left drivetrain in [meters/second].
      */
     public double getSpeedLeft() {
-        return unitModel.toVelocity(masterLeft.getSelectedSensorVelocity());
+        return getUnitModel().toVelocity(masterLeft.getSelectedSensorVelocity());
     }
 
     /**
@@ -64,8 +74,8 @@ public class Drivetrain extends SubsystemBase {
      * @param velocityLeft  left velocity [meters/second].
      */
     public void setVelocity(double velocityRight, double velocityLeft) {
-        masterRight.set(ControlMode.Velocity, unitModel.toTicks100ms(velocityRight));
-        masterLeft.set(ControlMode.Velocity, unitModel.toTicks100ms(velocityLeft));
+        masterRight.set(ControlMode.Velocity, getUnitModel().toTicks100ms(velocityRight));
+        masterLeft.set(ControlMode.Velocity, getUnitModel().toTicks100ms(velocityLeft));
     }
 
     /**
@@ -75,6 +85,40 @@ public class Drivetrain extends SubsystemBase {
      */
     public double getAcceleration() {
         return Robot.navx.getWorldLinearAccelY() * Constants.g;
+    }
+
+    public void setPiston(PistonMode pistonMode) {
+        piston.set(pistonMode.getValue());
+    }
+
+    /**
+     * Get piston mode.
+     *
+     * @return piston mode.
+     */
+    public boolean getPiston() {
+        return piston.get();
+    }
+
+    public enum PistonMode {
+        HIGH(true),
+        LOW(false);
+        private boolean on;
+
+        PistonMode(boolean on) {
+            this.on = on;
+        }
+
+        public boolean getValue() {
+            return on;
+        }
+    }
+
+    /**
+     * Switch piston mode.
+     */
+    public void togglePiston() {
+        piston.set(!piston.get());
     }
 
     @Override
