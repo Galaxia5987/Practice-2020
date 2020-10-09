@@ -4,20 +4,20 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shooter.Shooter;
 
 /**
- * activates the shooter subsystem based on velocity.
+ * activates the shooter subsystem based on distance.
  */
 public class Shoot extends CommandBase {
     private Shooter shooter;
-    private double velocity;
+    private double distance;
 
     /**
      * Command Constructor
      * @param shooter - the Shooter Subsystem
-     * @param velocity - target velocity (m/s)
+     * @param distance - the target distance
      */
-    public Shoot(Shooter shooter,double velocity) {
+    public Shoot(Shooter shooter,double distance) {
         this.shooter = shooter;
-        this.velocity = velocity;
+        this.distance = distance;
     }
 
     /**
@@ -29,11 +29,11 @@ public class Shoot extends CommandBase {
 
     @Override
     public void initialize() {
-        this.shooter.setPower(this.velocity); // calls Shooter's setPower function
     }
 
     @Override
     public void execute() {
+        shooter.setPower(getOptimalSpeed());
     }
 
     @Override
