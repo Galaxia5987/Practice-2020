@@ -32,6 +32,8 @@ public class Shooter extends SubsystemBase {
         master.config_kI(Constants.Shooter.PID_SLOT, Constants.Shooter.KI);
         master.config_kD(Constants.Shooter.PID_SLOT, Constants.Shooter.KD);
         master.config_kF(Constants.Shooter.PID_SLOT, Constants.Shooter.KF);
+
+        master.setSensorPhase(Ports.Shooter.IS_INVERTED_MASTER);
     }
 
     public double getVelocity() {
