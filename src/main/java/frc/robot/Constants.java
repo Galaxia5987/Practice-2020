@@ -26,5 +26,6 @@ public final class Constants {
 
     public static class Drivetrain {
         public static int TICKS_PER_METER = 0;
+        public static int TICKS_PER_METER_2 = 0;
     }
 }
