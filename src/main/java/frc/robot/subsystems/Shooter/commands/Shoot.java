@@ -1,11 +1,10 @@
 package frc.robot.subsystems.Shooter.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.robot.subsystems.Shooter.Shooter;
 
 /**
- * this command activates the shooter subsystem based on power
+ * activates the shooter subsystem based on velocity.
  */
 public class Shoot extends CommandBase {
     private Shooter shooter;

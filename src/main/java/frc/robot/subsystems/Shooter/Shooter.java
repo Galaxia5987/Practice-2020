@@ -15,10 +15,8 @@ public class Shooter extends SubsystemBase {
     private final UnitModel UnitModel = new UnitModel(Constants.Shooter.TICKS_PER_ROTATION);
 
     /**
-     * this constructor:
-     * -sets motors inverted
-     * -makes slaves to follow master
-     * -sets PID constants
+     * sets slaves to follow master and sets all motors inverted
+     * sets PID constants
      */
     public Shooter() {
 
@@ -41,8 +39,8 @@ public class Shooter extends SubsystemBase {
     }
 
     /**
-     * @param velocity: the target velocity
-     * @return if the shooter is working in the target velocity
+     * @param velocity: the target velocity.
+     * @return whether the shooter is working in the target velocity
      */
     public boolean isReady(double velocity) {
         double error = UnitModel.toVelocity(master.getSelectedSensorVelocity()) - velocity;
@@ -50,9 +48,8 @@ public class Shooter extends SubsystemBase {
     }
 
     /**
-     * this function activates Shooter's motors
-     *
-     * @param Velocity: the velocity output (m/s)
+     * Activates Shooter's motors.
+     * @param Velocity: the velocity output (m/s).
      */
     public void setPower(double Velocity) {
         master.set(ControlMode.Velocity, Velocity);
