@@ -24,7 +24,7 @@ public class Shoot extends CommandBase {
      * calculates optimal speed for intake
      */
     private double getOptimalSpeed(){
-        return 1.1;
+        return 1.1; //TODO: placeholder
     }
 
     @Override
