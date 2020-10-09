@@ -39,12 +39,12 @@ public class Shooter extends SubsystemBase {
     }
 
     /**
-     * @param velocity: the target velocity.
-     * @return whether the shooter is working in the target velocity
+     * @param distance: the target distance.
+     * @return whether the shooter is working in the optimal velocity
      */
-    public boolean isReady(double velocity) {
-        double error = UnitModel.toVelocity(master.getSelectedSensorVelocity()) - velocity;
-        return 1.1 > error && error > 0.9;
+    public boolean isReady(double distance) {
+        double velocityError = getVelocity()/distance;
+        return 1.1 > velocityError && velocityError > 0.9;
     }
 
     /**
