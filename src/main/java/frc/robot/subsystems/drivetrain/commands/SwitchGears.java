@@ -10,7 +10,7 @@ public class SwitchGears extends InstantCommand {
     public SwitchGears(Drivetrain drivetrain) {
         this.drivetrain = drivetrain;
         addRequirements(drivetrain);
-        initialPiston = drivetrain.getPiston();
+        initialPiston = drivetrain.getPistonMode();
     }
 
     @Override

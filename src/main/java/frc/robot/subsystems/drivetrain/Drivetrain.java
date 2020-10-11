@@ -43,7 +43,7 @@ public class Drivetrain extends SubsystemBase {
      * @return high gear or low gear unit model
      */
     public UnitModel getUnitModel() {
-        if (getPiston()) {
+        if (getPistonMode()) {
             return highGear;
         } else
             return lowGear;
@@ -98,7 +98,12 @@ public class Drivetrain extends SubsystemBase {
         return Robot.navx.getWorldLinearAccelY() * Constants.g;
     }
 
-    public void setPiston(PistonMode pistonMode) {
+    /**
+     * sets piston mode to the wanted given mode.
+     *
+     * @param pistonMode wanted piston mode (HIGH [true] /LOW [false]).
+     */
+    public void setPistonMode(PistonMode pistonMode) {
         piston.set(pistonMode.getValue());
     }
 
@@ -107,7 +112,7 @@ public class Drivetrain extends SubsystemBase {
      *
      * @return piston mode.
      */
-    public boolean getPiston() {
+    public boolean getPistonMode() {
         return piston.get();
     }
 
