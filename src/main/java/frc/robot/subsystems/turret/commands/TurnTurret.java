@@ -31,6 +31,6 @@ public class TurnTurret extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-
+        turret.setAngle(turret.getPosition());
     }
 }
