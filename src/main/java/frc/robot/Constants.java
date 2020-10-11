@@ -18,22 +18,22 @@ package frc.robot;
 public final class Constants {
 
     public static class Turret {
-        public static int TALON_TIMEOUT = 10;
+        public static final int TALON_TIMEOUT = 10;
 
-        public static int TICKS_PER_DEGREE = 0;
+        public static final int TICKS_PER_DEGREE = 0;
 
-        public static int TURRET_JOYSTICK_DEGREES = 15; //angle of the turret will move in accordance to joystick position (0%-100%) every 20ms.
+        public static final int TURRET_JOYSTICK_DEGREES = 15; //angle of the turret will move in accordance to joystick position (0%-100%) every 20ms.
 
-        public static double KP = 0;
+        public static final double KP = 0;
 
-        public static  double KI = 0;
+        public static final double KI = 0;
 
-        public static double KD = 0;
+        public static final double KD = 0;
 
-        public static double TOLERANCE = 1;
-    }
+        public static final double TOLERANCE = 1;
+        }
+
     public static final double g = 9.806;
-
 
     public static class Drivetrain {
         public static int TICKS_PER_METER = 0;
