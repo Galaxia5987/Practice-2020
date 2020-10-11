@@ -39,6 +39,7 @@ public class VisionTurret extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         visionModule.setLEDs(false);
+        turret.setAngle(turret.getPosition());
     }
 
 
