@@ -22,15 +22,22 @@ public class Drivetrain extends SubsystemBase {
     private Solenoid piston = new Solenoid(Ports.Drivetrain.SOLENOID);
 
     /**
-     * Invert masterRight motor and set both slaves to follow.
+     * Invert masterRight & slaveRight motors and set both slaves to follow and set sensor phase.
      */
     public Drivetrain() {
         masterRight.setInverted(true);
+        masterRight.setSensorPhase(true);
         slaveRight.follow(masterRight);
+        slaveRight.setInverted(true);
+        slaveRight.setSensorPhase(true);
         masterLeft.setInverted(false);
+        masterLeft.setSensorPhase(false);
         slaveLeft.follow(masterLeft);
+        slaveLeft.setInverted(false);
+        slaveLeft.setSensorPhase(false);
     }
 
+    
     public UnitModel getUnitModel() {
         if (getPiston()) {
             return highGear;
