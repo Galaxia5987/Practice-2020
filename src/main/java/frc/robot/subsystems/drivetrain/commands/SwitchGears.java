@@ -5,12 +5,10 @@ import frc.robot.subsystems.drivetrain.Drivetrain;
 
 public class SwitchGears extends InstantCommand {
     private Drivetrain drivetrain;
-    private boolean initialPiston;
 
     public SwitchGears(Drivetrain drivetrain) {
         this.drivetrain = drivetrain;
         addRequirements(drivetrain);
-        initialPiston = drivetrain.getPistonMode();
     }
 
     @Override
