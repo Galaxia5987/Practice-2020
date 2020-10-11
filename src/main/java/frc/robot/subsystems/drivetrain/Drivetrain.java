@@ -37,7 +37,11 @@ public class Drivetrain extends SubsystemBase {
         slaveLeft.setSensorPhase(false);
     }
 
-    
+    /**
+     * Get the correct unit model dependent on whether it's high gear or low gear.
+     *
+     * @return high gear or low gear unit model
+     */
     public UnitModel getUnitModel() {
         if (getPiston()) {
             return highGear;
