@@ -37,7 +37,7 @@ public final class Constants {
 
 
     public static class Drivetrain {
-        public static final int TICKS_PER_METER = 0;
-        public static final int TICKS_PER_METER_2 = 0;
+        public static final int TICKS_PER_METER_HIGH_GEAR = 0;
+        public static final int TICKS_PER_METER_LOW_GEAR = 0;
     }
 }

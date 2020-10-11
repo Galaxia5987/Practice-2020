@@ -17,8 +17,8 @@ public class Drivetrain extends SubsystemBase {
     private final TalonFX slaveRight = new TalonFX(Ports.Drivetrain.SLAVE_RIGHT);
     private final TalonFX masterLeft = new TalonFX(Ports.Drivetrain.MASTER_LEFT);
     private final TalonFX slaveLeft = new TalonFX(Ports.Drivetrain.SLAVE_LEFT);
-    public UnitModel highGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER);
-    private UnitModel lowGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_2);
+    public UnitModel highGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_HIGH_GEAR);
+    private UnitModel lowGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_LOW_GEAR);
     private Solenoid piston = new Solenoid(Ports.Drivetrain.SOLENOID);
 
     /**
