@@ -3,7 +3,6 @@ package frc.robot.subsystems.intake;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
-import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Ports;
 
@@ -16,9 +15,9 @@ public class Intake extends SubsystemBase{
      * Constructor
      */
     public Intake(){
-        talonSRX = new TalonSRX(Ports.Intake.talonSRX);
-        talonSRX.setInverted(Ports.Intake.isInverted);
-        piston = new Solenoid(Ports.Intake.piston);
+        talonSRX = new TalonSRX(Ports.Intake.TALON_SRX);
+        talonSRX.setInverted(Ports.Intake.IS_INVERTED);
+        piston = new Solenoid(Ports.Intake.PISTON);
         state = State.CLOSED;
     }
 
