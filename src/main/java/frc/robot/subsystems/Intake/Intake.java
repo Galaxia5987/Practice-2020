@@ -46,6 +46,10 @@ public class Intake extends SubsystemBase{
         state = State.CLOSE;
     }
 
+    public State getState() {
+        return state;
+    }
+
     /**
      * this function toggles the piston's state (opened --> closed || closed --> opened)
      */
