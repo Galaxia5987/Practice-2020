@@ -33,6 +33,7 @@ public class RobotContainer {
     public Drivetrain drivetrain = new Drivetrain();
     public static Joystick r = new Joystick(0);
     public static Joystick l = new Joystick(1);
+
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
      */
@@ -51,24 +52,24 @@ public class RobotContainer {
 
     }
 
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
-  public Command getAutonomousCommand() {
+    /**
+     * Use this to pass the autonomous command to the main {@link Robot} class.
+     *
+     * @return the command to run in autonomous
+     */
+//    public Command getAutonomousCommand() {
+//        return null;
+//    }
 
     /**
      * Use this to pass the autonomous command to the main {@link Robot} class.
      *
      * @return the command to run in autonomous
      */
-    public Command getAutonomousCommand() {
-
-        // An ExampleCommand will run in autonomous
-        return null;
-    }
-
+//    public Command getAutonomousCommand() {
+//        // An ExampleCommand will run in autonomous
+//        return null;
+//    }
     public static double getXboxLX() {
         return Xbox.getRawAxis(XboxController.Axis.kLeftX.value);
     }

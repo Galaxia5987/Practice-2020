@@ -13,29 +13,22 @@ public class VisionTurret extends CommandBase {
     public VisionTurret(Turret turret, VisionModule visionModule) {
         this.turret = turret;
         addRequirements(turret);
+        addRequirements(visionModule);
         this.visionModule = visionModule;
-    }
-
-    public boolean targetSeen() {
-        return visionModule.targetSeen();
     }
 
     public double getVisionAngle() {
         return visionModule.getVisionAngle() + turret.getPosition();
     }
 
-    public void setLEDs(boolean on) {
-        visionModule.setLEDs(on);
-    }
-
     @Override
     public void initialize() {
-        setLEDs(true);
+        visionModule.setLEDs(true);
     }
 
     @Override
     public void execute() {
-        if (targetSeen())
+        if (visionModule.targetSeen())
             turret.setAngle(getVisionAngle());
     }
 
@@ -46,7 +39,8 @@ public class VisionTurret extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        setLEDs(false);
+        visionModule.setLEDs(false);
+        turret.setAngle(turret.getPosition());
     }
 
 

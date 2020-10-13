@@ -24,12 +24,12 @@ public class JoystickTurret extends CommandBase {
     }
 
     @Override
-    public void end(boolean interrupted) {
-        turret.setAngle(turret.getPosition());
+    public boolean isFinished() {
+        return false;
     }
 
     @Override
-    public boolean isFinished() {
-        return false;
+    public void end(boolean interrupted) {
+        turret.setAngle(turret.getPosition());
     }
 }

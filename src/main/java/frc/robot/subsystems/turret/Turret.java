@@ -13,62 +13,55 @@ public class Turret extends SubsystemBase {
     private UnitModel unitModel;
 
     public Turret() {
-        master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.Turret.TALON_TIMEOUT);
+        master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.TALON_TIMEOUT);
         unitModel = new UnitModel(Constants.Turret.TICKS_PER_DEGREE);
-        master.config_kP(0, Constants.Turret.KP, Constants.Turret.TALON_TIMEOUT);
-        master.config_kI(0, Constants.Turret.KI, Constants.Turret.TALON_TIMEOUT);
-        master.config_kD(0, Constants.Turret.KD, Constants.Turret.TALON_TIMEOUT);
+        master.config_kP(0, Constants.Turret.KP, Constants.TALON_TIMEOUT);
+        master.config_kI(0, Constants.Turret.KI, Constants.TALON_TIMEOUT);
+        master.config_kD(0, Constants.Turret.KD, Constants.TALON_TIMEOUT);
     }
 
-    public void setAngle(double angle) {
-        if (angle > 360) {
-            angle = angle - 360;
+    /**
+     * Turn the turret to the given angle.
+     *
+     * @param targetAngle the angle the turret will turn to.
+     */
+    public void setAngle(double targetAngle) {
+        targetAngle %= 360;
+        targetAngle += 360;
+        targetAngle %= 360;
+        double targetPosition = getPosition();
+        double shortestPosition = Double.MAX_VALUE;
+        double position[] = {targetAngle - 360, targetAngle, targetAngle + 360};
+        for (double tarPos : position) {
+            if (tarPos < Constants.Turret.MINIMUM_POSITION || tarPos > Constants.Turret.MAXIMUM_POSITION)
+                continue;
+            if (Math.abs(tarPos - getPosition()) < shortestPosition) {
+                shortestPosition = Math.abs(tarPos - getPosition());
+                targetPosition = tarPos;
+            }
         }
-        if (angle < 0) {
-            angle = angle + 360;
-        }
-        if (angle >= 270 && angle <= 320)
-            return;
-
-        double addAngle = 0;
-        double myAngle = getPosition();
-        double option1 = angle - myAngle; //delta angle is positive clockwise
-        double option2 = -myAngle - (360 - angle); //delta angle is positive anti-clockwise
-        double option3 = -(myAngle - angle); //delta angle is negative anti-clockwise
-        double option4 = 360 - myAngle + angle; //delta angle is negative clockwise
-        if (angle > myAngle) {
-            if (Math.abs(option1) < Math.abs(option2))
-                if(!(angle>320 && myAngle <270))
-                    addAngle = option1;
-                else
-                    addAngle = option2;
-            else
-                if(angle >320)
-                    addAngle = option2;
-        } else {
-            if (Math.abs(option3) < Math.abs(option4))
-                if(!(myAngle>320 && angle <320))
-                    addAngle = option3;
-                else
-                    addAngle = option4;
-            else
-                if(angle < 270 && myAngle >320)
-                    addAngle = option4;
-                else
-                    addAngle = option4;
-        }
-
-        master.set(ControlMode.Position, unitModel.toUnits(addAngle));
+        master.set(ControlMode.Position, unitModel.toTicks(targetPosition));
     }
 
+    /**
+     * Gets the speed of the turret [m/s].
+     *
+     * @return the speed of the turret [m/s].
+     */
     public double getSpeed() {
         return unitModel.toVelocity(master.getSelectedSensorVelocity());
     }
 
+    /**
+     * Gets the position of the turret in degrees.
+     *
+     * @return the position of the turret in degrees.
+     */
     public double getPosition() {
         return unitModel.toUnits(master.getSelectedSensorPosition());
     }
 
+    @Override
     public void periodic() {
         // This method will be called once per scheduler run
     }

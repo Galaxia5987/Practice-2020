@@ -9,12 +9,12 @@ public class Ports {
         public static final int MASTER_LEFT = 3;
         public static final int SLAVE_LEFT = 4;
         public static final int SOLENOID = 1;
+    }
 
+    public static class Turret {
+        public static final int MASTER = 1;
     }
 
 
 }
 
-    public static class Turret {
-        public static final int MASTER = 1;
-    }
