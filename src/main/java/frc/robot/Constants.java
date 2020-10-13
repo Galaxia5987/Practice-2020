@@ -38,6 +38,24 @@ public final class Constants {
 
     public static class Drivetrain {
         public static final int TICKS_PER_METER_HIGH_GEAR = 0;
+
         public static final int TICKS_PER_METER_LOW_GEAR = 0;
+
+        public static final boolean MASTER_RIGHT_INVERTED = true;
+
+        public static final boolean SLAVE_RIGHT_INVERTED = true;
+
+        public static final boolean MASTER_RIGHT_SENSOR_PHASE = true;
+
+        public static final boolean SLAVE_RIGHT_SENSOR_PHASE = true;
+
+        public static final boolean MASTER_LEFT_INVERTED = false;
+
+        public static final boolean SLAVE_LEFT_INVERTED = false;
+
+        public static final boolean MASTER_LEFT_SENSOR_PHASE = false;
+
+        public static final boolean SLAVE_LEFT_SENSOR_PHASE = false;
+
     }
 }

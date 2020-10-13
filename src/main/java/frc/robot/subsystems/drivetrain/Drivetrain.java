@@ -25,16 +25,16 @@ public class Drivetrain extends SubsystemBase {
      * Invert masterRight & slaveRight motors and set both slaves to follow and set sensor phase.
      */
     public Drivetrain() {
-        masterRight.setInverted(true);
-        masterRight.setSensorPhase(true);
+        masterRight.setInverted(Constants.Drivetrain.MASTER_RIGHT_INVERTED);
+        masterRight.setSensorPhase(Constants.Drivetrain.MASTER_RIGHT_SENSOR_PHASE);
         slaveRight.follow(masterRight);
-        slaveRight.setInverted(true);
-        slaveRight.setSensorPhase(true);
-        masterLeft.setInverted(false);
-        masterLeft.setSensorPhase(false);
+        slaveRight.setInverted(Constants.Drivetrain.SLAVE_RIGHT_INVERTED);
+        slaveRight.setSensorPhase(Constants.Drivetrain.SLAVE_LEFT_SENSOR_PHASE);
+        masterLeft.setInverted(Constants.Drivetrain.MASTER_LEFT_INVERTED);
+        masterLeft.setSensorPhase(Constants.Drivetrain.MASTER_LEFT_SENSOR_PHASE);
         slaveLeft.follow(masterLeft);
-        slaveLeft.setInverted(false);
-        slaveLeft.setSensorPhase(false);
+        slaveLeft.setInverted(Constants.Drivetrain.SLAVE_LEFT_INVERTED);
+        slaveLeft.setSensorPhase(Constants.Drivetrain.SLAVE_LEFT_SENSOR_PHASE);
     }
 
     /**
