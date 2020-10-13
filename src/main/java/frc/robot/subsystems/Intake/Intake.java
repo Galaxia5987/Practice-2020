@@ -5,19 +5,20 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
 import frc.robot.Constants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Ports;
 
 public class Intake extends SubsystemBase{
-    private TalonSRX talonSRX; // the Intake's motor
-    private Solenoid piston; // the Intake's pistons
-    private State state; // the pistons's state
+    private TalonSRX talonSRX;
+    private Solenoid piston;
+    private State state;
 
     /**
      * Constructor
      */
     public Intake(){
-        talonSRX = new TalonSRX(Constants.Intake.talonSRX);
-        talonSRX.setInverted(Constants.Intake.isInverted);// set talonSRX inverted (by constant)
-        piston = new Solenoid(Constants.Intake.piston);
+        talonSRX = new TalonSRX(Ports.Intake.talonSRX);
+        talonSRX.setInverted(Ports.Intake.isInverted);
+        piston = new Solenoid(Ports.Intake.piston);
         state = State.CLOSED;
     }
 
