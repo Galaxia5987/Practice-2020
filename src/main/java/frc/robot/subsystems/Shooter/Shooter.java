@@ -43,12 +43,12 @@ public class Shooter extends SubsystemBase {
     }
 
     /**
-     * @param distance: the target distance.
+     * @param velocity: the optimal velocity
      * @return whether the shooter is working in the optimal velocity
      */
-    public boolean isReady(double distance) {
-        double velocityError = getVelocity()/distance;
-        return 1.1 > velocityError && velocityError > 0.9;
+    public boolean isReady(double velocity) {
+        double velocityError = Math.abs(velocity-getVelocity());
+        return Constants.Shooter.VEL_THRESHOLD > velocityError;
     }
 
     /**
