@@ -1,12 +1,14 @@
 package frc.robot.subsystems.intake.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.intake.Intake;
+
+import java.time.Instant;
 
 /**
  * this command controls the Intake's Piston
  */
-public class MovePiston extends CommandBase{
+public class MovePiston extends InstantCommand {
     private Intake intake;
     public MovePiston(Intake i) {
         intake = i;
@@ -15,20 +17,5 @@ public class MovePiston extends CommandBase{
     @Override
     public void initialize() {
         intake.togglePiston();// calls the Intake's togglePiston function
-    }
-
-    @Override
-    public void execute() {
-
-    }
-
-    @Override
-    public void end(boolean interrupted) {
-
-    }
-
-    @Override
-    public boolean isFinished() {
-        return true;
     }
 }
