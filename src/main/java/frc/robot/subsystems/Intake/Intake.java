@@ -4,6 +4,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 import frc.robot.Ports;
 
 public class Intake extends SubsystemBase{
@@ -18,7 +19,7 @@ public class Intake extends SubsystemBase{
         talonSRX = new TalonSRX(Ports.Intake.TALON_SRX);
         talonSRX.setInverted(Ports.Intake.IS_INVERTED);
         piston = new Solenoid(Ports.Intake.PISTON);
-        state = State.CLOSED;
+        state = State.CLOSE;
     }
 
     /**
@@ -34,7 +35,7 @@ public class Intake extends SubsystemBase{
      */
     public void openPiston(){
         piston.set(true);
-        state = State.OPENED;
+        state = State.OPEN;
     }
 
     /**
@@ -42,14 +43,14 @@ public class Intake extends SubsystemBase{
      */
     public void closePiston(){
         piston.set(false);
-        state = State.CLOSED;
+        state = State.CLOSE;
     }
 
     /**
      * this function toggles the piston's state (opened --> closed || closed --> opened)
      */
     public void togglePiston(){
-        if(state == State.OPENED)
+        if(state == State.OPEN)
             closePiston();
         else
             openPiston();
@@ -62,7 +63,7 @@ public class Intake extends SubsystemBase{
 
     
     public enum State{//the piston optional states
-        OPENED,
-        CLOSED;
+        OPEN,
+        CLOSE;
     }
 }
