@@ -13,7 +13,8 @@ public class Intake extends SubsystemBase{
     private State state;
 
     /**
-     * Constructor
+     * sets ports & sets talon inverted
+     * sets talon's state
      */
     public Intake(){
         talonSRX = new TalonSRX(Ports.Intake.TALON_SRX);

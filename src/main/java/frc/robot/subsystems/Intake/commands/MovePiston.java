@@ -7,7 +7,7 @@ import frc.robot.subsystems.intake.Intake;
  * this command controls the Intake's Piston
  */
 public class MovePiston extends CommandBase{
-    private Intake intake;//the Intake subsystem
+    private Intake intake;
     public MovePiston(Intake i) {
         intake = i;
     }
