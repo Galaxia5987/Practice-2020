@@ -1,7 +1,7 @@
-package frc.robot.subsystems.Intake.commands;
+package frc.robot.subsystems.intake.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Intake.Intake;
+import frc.robot.subsystems.intake.Intake;
 
 /**
  * this command controls the Intake's Piston
