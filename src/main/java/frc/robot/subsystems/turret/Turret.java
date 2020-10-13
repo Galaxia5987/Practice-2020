@@ -20,6 +20,11 @@ public class Turret extends SubsystemBase {
         master.config_kD(0, Constants.Turret.KD, Constants.Turret.TALON_TIMEOUT);
     }
 
+    /**
+     * Turn the turret to the given angle.
+     *
+     * @param targetAngle the angle the turret will turn to.
+     */
     public void setAngle(double targetAngle) {
         targetAngle %= 360;
         targetAngle += 360;

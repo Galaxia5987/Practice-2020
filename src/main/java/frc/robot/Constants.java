@@ -31,6 +31,10 @@ public final class Constants {
         public static final double KD = 0;
 
         public static final double TOLERANCE = 1;
+
+        public static final double MAXIMUM_POSITION = 270;
+
+        public static final double MINIMUM_POSITION = -40;
         }
 
     public static final double g = 9.806;
