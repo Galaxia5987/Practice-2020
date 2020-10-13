@@ -35,7 +35,7 @@ public class Turret extends SubsystemBase {
         for (double tarPos : position) {
             if (tarPos < Constants.Turret.MINIMUM_POSITION || tarPos > Constants.Turret.MAXIMUM_POSITION)
                 continue;
-            if (Math.abs(tarPos - getPosition()) < shortestPosition ) {
+            if (Math.abs(tarPos - getPosition()) < shortestPosition) {
                 shortestPosition = Math.abs(tarPos - getPosition());
                 targetPosition = tarPos;
             }
@@ -43,15 +43,25 @@ public class Turret extends SubsystemBase {
         master.set(ControlMode.Position, unitModel.toTicks(targetPosition));
     }
 
-
+    /**
+     * Gets the speed of the turret [m/s].
+     *
+     * @return the speed of the turret [m/s].
+     */
     public double getSpeed() {
         return unitModel.toVelocity(master.getSelectedSensorVelocity());
     }
 
+    /**
+     * Gets the position of the turret in degrees.
+     *
+     * @return the position of the turret in degrees.
+     */
     public double getPosition() {
         return unitModel.toUnits(master.getSelectedSensorPosition());
     }
 
+    @Override
     public void periodic() {
         // This method will be called once per scheduler run
     }
