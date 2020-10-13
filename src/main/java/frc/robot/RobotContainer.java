@@ -44,7 +44,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     x.whileHeld(new StartIntake(intake,0.4));
-    y.whenPressed(new MoveIntake(intake));
+    y.whenPressed(new MovePiston(intake));
   }
 
 
