@@ -5,6 +5,7 @@ public class Ports {
         public static final boolean IS_INVERTED_MASTER = false;
         public static final boolean IS_INVERTED_SLAVE1 = false;
         public static final boolean IS_INVERTED_SLAVE2 = false;
+        public static final boolean SENSOR_PHASE = false;
 
         public static final int MASTER = 0;
         public static final int SLAVE1 = 1;

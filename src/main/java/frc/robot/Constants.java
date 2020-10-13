@@ -20,8 +20,8 @@ public final class Constants {
 
         
         public static final double TICKS_PER_ROTATION = 4096;//TODO: placeholder
-        public static final boolean SENSOR_PHASE = false;
         public static final double DISTANCE = 3;//TODO:placeholder
+        public static final double VEL_THRESHOLD = 1.5; //TODO:placeholder
 
         public static final int PID_SLOT = 0;
         public static final double KP = 0;

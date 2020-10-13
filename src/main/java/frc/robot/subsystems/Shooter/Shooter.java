@@ -35,7 +35,7 @@ public class Shooter extends SubsystemBase {
         master.config_kF(Constants.Shooter.PID_SLOT, Constants.Shooter.KF);
 
         master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
-        master.setSensorPhase(Constants.Shooter.SENSOR_PHASE);
+        master.setSensorPhase(Ports.Shooter.SENSOR_PHASE);
     }
 
     public double getVelocity() {
