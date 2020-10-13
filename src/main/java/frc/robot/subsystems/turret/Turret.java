@@ -40,7 +40,7 @@ public class Turret extends SubsystemBase {
                 targetPosition = tarPos;
             }
         }
-        master.set(ControlMode.Position, unitModel.toUnits(targetPosition));
+        master.set(ControlMode.Position, unitModel.toTicks(targetPosition));
     }
 
 
