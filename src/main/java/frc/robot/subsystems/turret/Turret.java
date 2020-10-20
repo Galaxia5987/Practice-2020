@@ -10,11 +10,13 @@ import frc.robot.subsystems.UnitModel;
 
 public class Turret extends SubsystemBase {
     private final TalonSRX master = new TalonSRX(Ports.Turret.MASTER);
-    private UnitModel unitModel;
+    private final UnitModel unitModel = new UnitModel(Constants.Turret.TICKS_PER_DEGREE);
 
+    /**
+     * Turret Constructor: Config feedback sensor, create new unit model, and config kP,kI and kD.
+     */
     public Turret() {
         master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.TALON_TIMEOUT);
-        unitModel = new UnitModel(Constants.Turret.TICKS_PER_DEGREE);
         master.config_kP(0, Constants.Turret.KP, Constants.TALON_TIMEOUT);
         master.config_kI(0, Constants.Turret.KI, Constants.TALON_TIMEOUT);
         master.config_kD(0, Constants.Turret.KD, Constants.TALON_TIMEOUT);
@@ -59,6 +61,16 @@ public class Turret extends SubsystemBase {
      */
     public double getPosition() {
         return unitModel.toUnits(master.getSelectedSensorPosition());
+    }
+
+    /**
+     * Checks whether or not the given angle is in the deadzone.
+     *
+     * @param angle given angle [degrees].
+     * @return whether or not the given angle is in the deadzone.
+     */
+    public boolean isInDeadzone(double angle) {
+        return angle >= Constants.Turret.MINIMUM_DEADZONE && angle <= Constants.Turret.MAXIMUM_DEADZONE;
     }
 
     @Override

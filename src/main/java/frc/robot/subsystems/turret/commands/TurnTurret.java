@@ -21,7 +21,8 @@ public class TurnTurret extends CommandBase {
 
     @Override
     public void execute() {
-        turret.setAngle(angle);
+        if(!turret.isInDeadzone(angle))
+            turret.setAngle(angle);
     }
 
     @Override
