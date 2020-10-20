@@ -1,6 +1,7 @@
 package frc.robot.subsystems.climb;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -36,10 +37,29 @@ public class Climb extends SubsystemBase {
         leftSlave.setInverted(ports.Drivetrain.left_inverted);
 
         rightMaster.setSensorPhase(ports.Drivetrain.sensorPhase);
+
+        rightMaster.configSelectedFeedbackSensor(FeedbackDevice.Analog);
+        leftMaster.configSelectedFeedbackSensor(FeedbackDevice.Analog);
     }
 
     public void setPower(double rightPower, double leftPower){
         rightMaster.set(ControlMode.PercentOutput, rightPower);
         leftMaster.set(ControlMode.PercentOutput, leftPower);
+    }
+
+    public void setRightHight(double hight){
+    rightMaster.set(ControlMode.Position, UnitModel.toTicks(hight));
+    }
+
+    public void setLeftHight(double hight){
+        leftMaster.set(ControlMode.Position, UnitModel.toTicks());
+    }
+
+    public double getRightHight(){
+        return UnitModel.toUnits(rightMaster.getSelectedSensorPosition());
+    }
+
+    public double getLeftHight(){
+        return UnitModel.toUnits(rightMaster.getSelectedSensorPosition());
     }
 }
