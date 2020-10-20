@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Ports;
 
-public class Intake extends SubsystemBase{
+public class Intake extends SubsystemBase {
     private TalonSRX talonSRX;
     private Solenoid piston;
     private State state;
@@ -15,7 +15,7 @@ public class Intake extends SubsystemBase{
      * sets ports & sets talon inverted
      * sets talon's state
      */
-    public Intake(){
+    public Intake() {
         talonSRX = new TalonSRX(Ports.Intake.MOTOR);
         talonSRX.setInverted(Ports.Intake.IS_INVERTED);
         piston = new Solenoid(Ports.Intake.PISTON);
@@ -24,16 +24,16 @@ public class Intake extends SubsystemBase{
 
     /**
      * @param power - power output (%)
-     * this function sets motor's power
+     *              this function sets motor's power
      */
-    public void setPower(double power){
-        talonSRX.set(ControlMode.PercentOutput,power);
+    public void setPower(double power) {
+        talonSRX.set(ControlMode.PercentOutput, power);
     }
 
     /**
      * this function controls the piston
      */
-    public void movePiston(State state){
+    public void movePiston(State state) {
         piston.set(state == State.OPEN);
         this.state = state;
     }
@@ -45,8 +45,8 @@ public class Intake extends SubsystemBase{
     /**
      * this function toggles the piston's state (opened --> closed || closed --> opened)
      */
-    public void togglePiston(){
-        movePiston(state==State.OPEN ? State.CLOSE : State.OPEN);
+    public void togglePiston() {
+        movePiston(state == State.OPEN ? State.CLOSE : State.OPEN);
     }
 
     @Override
@@ -54,8 +54,8 @@ public class Intake extends SubsystemBase{
 
     }
 
-    
-    public enum State{//the piston optional states
+
+    public enum State {//the piston optional states
         OPEN,
         CLOSE;
     }
