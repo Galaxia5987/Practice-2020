@@ -64,6 +64,16 @@ public class Turret extends SubsystemBase {
         return unitModel.toUnits(master.getSelectedSensorPosition());
     }
 
+    /**
+     * Checks whether or not the given angle is in the deadzone.
+     *
+     * @param angle given angle [degrees].
+     * @return whether or not the given angle is in the deadzone.
+     */
+    public boolean isInDeadzone(double angle) {
+        return angle >= Constants.Turret.MINIMUM_DEADZONE && angle <= Constants.Turret.MAXIMUM_DEADZONE;
+    }
+
     @Override
     public void periodic() {
         // This method will be called once per scheduler run

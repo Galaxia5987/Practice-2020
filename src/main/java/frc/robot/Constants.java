@@ -20,7 +20,6 @@ public final class Constants {
 
     public static class Turret {
 
-
         public static final int TICKS_PER_DEGREE = 0;
 
         public static final int TURRET_JOYSTICK_DEGREES = 15; //angle of the turret will move in accordance to joystick position (0%-100%) every 20ms.
@@ -36,9 +35,13 @@ public final class Constants {
         public static final double MAXIMUM_POSITION = 270;
 
         public static final double MINIMUM_POSITION = -40;
-        }
 
-    public static final double G     = 9.806;
+        public static final double MINIMUM_DEADZONE = 38;
+
+        public static final double MAXIMUM_DEADZONE = 86;
+    }
+
+    public static final double G = 9.806;
 
     public static class Drivetrain {
         public static int TICKS_PER_METER = 0;
