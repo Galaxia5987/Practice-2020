@@ -45,7 +45,7 @@ public class Intake extends SubsystemBase{
     /**
      * this function toggles the piston's state (opened --> closed || closed --> opened)
      */
-    public void togglePiston(){
+    public void togglePiston() {
         movePiston(state==State.OPEN ? State.CLOSE : State.OPEN);
     }
 
