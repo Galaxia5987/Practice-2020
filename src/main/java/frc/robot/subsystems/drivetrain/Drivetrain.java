@@ -116,6 +116,10 @@ public class Drivetrain extends SubsystemBase {
         return piston.get();
     }
 
+
+    /**
+     * enum for the piston mode, (HIGH = true) (LOW = false).
+     */
     public enum PistonMode {
         HIGH(true),
         LOW(false);
@@ -125,6 +129,11 @@ public class Drivetrain extends SubsystemBase {
             this.on = on;
         }
 
+        /**
+         * Gets the value of the piston.
+         *
+         * @return the value of the piston in boolean.
+         */
         public boolean getValue() {
             return on;
         }
