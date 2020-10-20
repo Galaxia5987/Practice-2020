@@ -38,6 +38,10 @@ public class Intake extends SubsystemBase {
         this.state = state;
     }
 
+    /**
+     *
+     * @return the state of the piston (CLOSED/OPENED)
+     */
     public State getState() {
         return state;
     }
@@ -55,7 +59,10 @@ public class Intake extends SubsystemBase {
     }
 
 
-    public enum State {//the piston optional states
+    /**
+     * the piston's optional states
+     */
+    public enum State {
         OPEN,
         CLOSE;
     }
