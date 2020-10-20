@@ -20,7 +20,6 @@ public class Drivetrain extends SubsystemBase {
     public UnitModel highGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_HIGH_GEAR);
     private UnitModel lowGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_LOW_GEAR);
     private Solenoid piston = new Solenoid(Ports.Drivetrain.SOLENOID);
-    //
 
     /**
      * Invert masterRight & slaveRight motors and set both slaves to follow and set sensor phase.
