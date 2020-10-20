@@ -13,10 +13,9 @@ public class SwitchGears extends InstantCommand {
 
     @Override
     public void initialize() {
-        drivetrain.togglePiston();
+        if (drivetrain.getSpeedLeft() > 0 || drivetrain.getSpeedLeft() > 0)
+            drivetrain.togglePiston();
     }
-
-
 
 
 }
