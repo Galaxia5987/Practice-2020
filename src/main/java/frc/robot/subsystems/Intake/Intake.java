@@ -31,19 +31,11 @@ public class Intake extends SubsystemBase{
     }
 
     /**
-     * this function activates the piston
+     * this function controls the piston
      */
-    public void openPiston(){
-        piston.set(true);
-        state = State.OPEN;
-    }
-
-    /**
-     * this function deactivates the piston
-     */
-    public void closePiston(){
-        piston.set(false);
-        state = State.CLOSE;
+    public void movePiston(State state){
+        piston.set(state == State.OPEN);
+        this.state = state;
     }
 
     public State getState() {
@@ -54,10 +46,7 @@ public class Intake extends SubsystemBase{
      * this function toggles the piston's state (opened --> closed || closed --> opened)
      */
     public void togglePiston(){
-        if(state == State.OPEN)
-            closePiston();
-        else
-            openPiston();
+        movePiston(state==State.OPEN ? State.CLOSE : State.OPEN);
     }
 
     @Override
