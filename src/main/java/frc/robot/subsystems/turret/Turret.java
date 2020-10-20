@@ -32,13 +32,13 @@ public class Turret extends SubsystemBase {
         targetAngle += 360;
         targetAngle %= 360;
         double targetPosition = getPosition();
-        double shortestPosition = Double.MAX_VALUE;
-        double position[] = {targetAngle - 360, targetAngle, targetAngle + 360};
+        double shortestDistance = Double.MAX_VALUE;
+        double[] position = {targetAngle - 360, targetAngle, targetAngle + 360};
         for (double tarPos : position) {
             if (tarPos < Constants.Turret.MINIMUM_POSITION || tarPos > Constants.Turret.MAXIMUM_POSITION)
                 continue;
-            if (Math.abs(tarPos - getPosition()) < shortestPosition) {
-                shortestPosition = Math.abs(tarPos - getPosition());
+            if (Math.abs(tarPos - getPosition()) < shortestDistance) {
+                shortestDistance = Math.abs(tarPos - getPosition());
                 targetPosition = tarPos;
             }
         }
