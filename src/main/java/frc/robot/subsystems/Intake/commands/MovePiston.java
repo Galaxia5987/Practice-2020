@@ -12,6 +12,7 @@ public class MovePiston extends InstantCommand {
     private Intake intake;
     public MovePiston(Intake i) {
         intake = i;
+        addRequirements(intake);
     }
 
     @Override
