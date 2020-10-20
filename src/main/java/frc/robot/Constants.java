@@ -16,10 +16,9 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final int TALON_TIMEOUT = 10;
+    public static final int TALON_TIMEOUT = 10; //[ms].
 
     public static class Turret {
-
 
         public static final int TICKS_PER_DEGREE = 0;
 
@@ -36,9 +35,13 @@ public final class Constants {
         public static final double MAXIMUM_POSITION = 270;
 
         public static final double MINIMUM_POSITION = -40;
-        }
 
-    public static final double G     = 9.806;
+        public static final double MINIMUM_DEADZONE = 38;
+
+        public static final double MAXIMUM_DEADZONE = 86;
+    }
+
+    public static final double G = 9.806;
 
     public static class Drivetrain {
         public static final int TICKS_PER_METER_HIGH_GEAR = 0;
