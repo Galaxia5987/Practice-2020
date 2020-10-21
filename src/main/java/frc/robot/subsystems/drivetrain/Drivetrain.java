@@ -68,8 +68,8 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Set power for drivetrain.
      *
-     * @param powerRight right power [(-1) - 1].
-     * @param powerLeft  left power [(-1) - 1].
+     * @param powerRight right power [-1, 1].
+     * @param powerLeft  left power [-1, 1].
      */
     public void setPower(double powerRight, double powerLeft) {
         masterRight.set(ControlMode.PercentOutput, powerRight);
@@ -93,7 +93,7 @@ public class Drivetrain extends SubsystemBase {
      * @return acceleration of drivetrain in [meters/seconds^2].
      */
     public double getAcceleration() {
-        return Robot.navx.getWorldLinearAccelY() * Constants.g;
+        return Robot.navx.getWorldLinearAccelY() * Constants.G;
     }
 
     /**
@@ -106,9 +106,9 @@ public class Drivetrain extends SubsystemBase {
     }
 
     /**
-     * Get piston mode.
+     * Get piston mode [extracted, retracted].
      *
-     * @return piston mode.
+     * @return piston mode [extracted, retracted].
      */
     public boolean getPistonMode() {
         return piston.get();
