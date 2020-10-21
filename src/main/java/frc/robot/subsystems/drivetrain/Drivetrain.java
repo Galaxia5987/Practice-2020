@@ -17,7 +17,7 @@ public class Drivetrain extends SubsystemBase {
     private final TalonFX slaveRight = new TalonFX(Ports.Drivetrain.SLAVE_RIGHT);
     private final TalonFX masterLeft = new TalonFX(Ports.Drivetrain.MASTER_LEFT);
     private final TalonFX slaveLeft = new TalonFX(Ports.Drivetrain.SLAVE_LEFT);
-    public UnitModel highGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_HIGH_GEAR);
+    private UnitModel highGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_HIGH_GEAR);
     private UnitModel lowGear = new UnitModel(Constants.Drivetrain.TICKS_PER_METER_LOW_GEAR);
     private Solenoid piston = new Solenoid(Ports.Drivetrain.SOLENOID);
 
@@ -29,12 +29,10 @@ public class Drivetrain extends SubsystemBase {
         masterRight.setSensorPhase(Constants.Drivetrain.MASTER_RIGHT_SENSOR_PHASE);
         slaveRight.follow(masterRight);
         slaveRight.setInverted(Constants.Drivetrain.SLAVE_RIGHT_INVERTED);
-        slaveRight.setSensorPhase(Constants.Drivetrain.SLAVE_LEFT_SENSOR_PHASE);
         masterLeft.setInverted(Constants.Drivetrain.MASTER_LEFT_INVERTED);
         masterLeft.setSensorPhase(Constants.Drivetrain.MASTER_LEFT_SENSOR_PHASE);
         slaveLeft.follow(masterLeft);
         slaveLeft.setInverted(Constants.Drivetrain.SLAVE_LEFT_INVERTED);
-        slaveLeft.setSensorPhase(Constants.Drivetrain.SLAVE_LEFT_SENSOR_PHASE);
     }
 
     /**
@@ -70,8 +68,8 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Set power for drivetrain.
      *
-     * @param powerRight right power [(-1) - 1].
-     * @param powerLeft  left power [(-1) - 1].
+     * @param powerRight right power [-1, 1].
+     * @param powerLeft  left power [-1, 1].
      */
     public void setPower(double powerRight, double powerLeft) {
         masterRight.set(ControlMode.PercentOutput, powerRight);
@@ -95,7 +93,7 @@ public class Drivetrain extends SubsystemBase {
      * @return acceleration of drivetrain in [meters/seconds^2].
      */
     public double getAcceleration() {
-        return Robot.navx.getWorldLinearAccelY() * Constants.g;
+        return Robot.navx.getWorldLinearAccelY() * Constants.G;
     }
 
     /**
@@ -108,9 +106,9 @@ public class Drivetrain extends SubsystemBase {
     }
 
     /**
-     * Get piston mode.
+     * Get piston mode [extracted, retracted].
      *
-     * @return piston mode.
+     * @return piston mode [extracted, retracted].
      */
     public boolean getPistonMode() {
         return piston.get();
