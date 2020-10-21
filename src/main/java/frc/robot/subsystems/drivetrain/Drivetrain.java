@@ -29,12 +29,10 @@ public class Drivetrain extends SubsystemBase {
         masterRight.setSensorPhase(Constants.Drivetrain.MASTER_RIGHT_SENSOR_PHASE);
         slaveRight.follow(masterRight);
         slaveRight.setInverted(Constants.Drivetrain.SLAVE_RIGHT_INVERTED);
-        slaveRight.setSensorPhase(Constants.Drivetrain.SLAVE_LEFT_SENSOR_PHASE);
         masterLeft.setInverted(Constants.Drivetrain.MASTER_LEFT_INVERTED);
         masterLeft.setSensorPhase(Constants.Drivetrain.MASTER_LEFT_SENSOR_PHASE);
         slaveLeft.follow(masterLeft);
         slaveLeft.setInverted(Constants.Drivetrain.SLAVE_LEFT_INVERTED);
-        slaveLeft.setSensorPhase(Constants.Drivetrain.SLAVE_LEFT_SENSOR_PHASE);
     }
 
     /**
