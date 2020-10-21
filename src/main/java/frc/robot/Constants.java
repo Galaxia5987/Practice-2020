@@ -32,13 +32,13 @@ public final class Constants {
 
         public static final double TOLERANCE = 1;
 
-        public static final double MAXIMUM_POSITION = 270;
+        public static final double MINIMUM_POSITION = -40; //[degrees]
 
-        public static final double MINIMUM_POSITION = -40;
+        public static final double MAXIMUM_POSITION = 270; //[degrees]
 
-        public static final double MINIMUM_DEADZONE = 38;
+        public static final double MINIMUM_DEADZONE = 38; //[degrees]
 
-        public static final double MAXIMUM_DEADZONE = 86;
+        public static final double MAXIMUM_DEADZONE = 86; //[degrees]
     }
 
     public static final double G = 9.806;
