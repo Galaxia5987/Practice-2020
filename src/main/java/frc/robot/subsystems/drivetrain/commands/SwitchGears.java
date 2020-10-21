@@ -1,6 +1,7 @@
 package frc.robot.subsystems.drivetrain.commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
+import frc.robot.Constants;
 import frc.robot.subsystems.drivetrain.Drivetrain;
 
 public class SwitchGears extends InstantCommand {
@@ -13,7 +14,7 @@ public class SwitchGears extends InstantCommand {
 
     @Override
     public void initialize() {
-        if (drivetrain.getSpeedLeft() > 0 || drivetrain.getSpeedLeft() > 0)
+        if (drivetrain.getSpeedLeft() > Constants.Drivetrain.MINIMUM_SPEED && drivetrain.getSpeedLeft() > Constants.Drivetrain.MINIMUM_SPEED)
             drivetrain.togglePiston();
     }
 

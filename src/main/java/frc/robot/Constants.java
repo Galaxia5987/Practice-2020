@@ -54,15 +54,12 @@ public final class Constants {
 
         public static final boolean MASTER_RIGHT_SENSOR_PHASE = true;
 
-        public static final boolean SLAVE_RIGHT_SENSOR_PHASE = true;
-
         public static final boolean MASTER_LEFT_INVERTED = false;
 
         public static final boolean SLAVE_LEFT_INVERTED = false;
 
         public static final boolean MASTER_LEFT_SENSOR_PHASE = false;
 
-        public static final boolean SLAVE_LEFT_SENSOR_PHASE = false;
-
+        public static final double MINIMUM_SPEED = 0;
     }
 }
