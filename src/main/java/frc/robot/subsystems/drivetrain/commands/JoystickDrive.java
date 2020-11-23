@@ -10,6 +10,8 @@ import frc.robot.subsystems.drivetrain.Drivetrain;
  */
 public class JoystickDrive extends CommandBase {
     private Drivetrain drivetrain;
+    private double rightPower;
+    private double leftPower;
 
     /**
      * Build drivetrain and add.
@@ -31,8 +33,8 @@ public class JoystickDrive extends CommandBase {
      */
     @Override
     public void execute() {
-        double rightPower = RobotContainer.r.getY();
-        double leftPower = RobotContainer.l.getY();
+        rightPower = RobotContainer.r.getY();
+        leftPower = RobotContainer.l.getY();
         drivetrain.setPower(rightPower, leftPower);
     }
 
