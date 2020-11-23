@@ -12,8 +12,8 @@ public class VisionTurret extends CommandBase {
 
     public VisionTurret(Turret turret, VisionModule visionModule) {
         this.turret = turret;
-        addRequirements(turret, visionModule);
         this.visionModule = visionModule;
+        addRequirements(turret, visionModule);
     }
 
     public double getVisionAngle() {
