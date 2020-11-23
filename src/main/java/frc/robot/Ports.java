@@ -4,10 +4,10 @@ import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 public class Ports {
     public static class Drivetrain {
-        public static final int MASTER_RIGHT = 1;
-        public static final int SLAVE_RIGHT = 2;
-        public static final int MASTER_LEFT = 3;
-        public static final int SLAVE_LEFT = 4;
+        public static final int MASTER_RIGHT = 12;
+        public static final int SLAVE_RIGHT = 13;
+        public static final int MASTER_LEFT = 10;
+        public static final int SLAVE_LEFT = 11;
         public static final int SOLENOID = 1;
         public static final boolean MASTER_RIGHT_INVERTED = true;
         public static final boolean SLAVE_RIGHT_INVERTED = true;
