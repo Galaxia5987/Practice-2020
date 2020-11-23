@@ -33,8 +33,8 @@ public class JoystickDrive extends CommandBase {
      */
     @Override
     public void execute() {
-        rightPower = RobotContainer.r.getY();
-        leftPower = RobotContainer.l.getY();
+        rightPower = -RobotContainer.r.getY();
+        leftPower = -RobotContainer.l.getY();
         drivetrain.setPower(rightPower, leftPower);
     }
 
