@@ -20,15 +20,14 @@ import frc.robot.subsystems.drivetrain.Drivetrain;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-    public static XboxController Xbox = new XboxController(1);
+    public static XboxController Xbox = new XboxController(0);
     public JoystickButton a = new JoystickButton(Xbox, XboxController.Button.kA.value);
     public JoystickButton b = new JoystickButton(Xbox, XboxController.Button.kB.value);
+    public static Joystick r = new Joystick(1);
+    public static Joystick l = new Joystick(2);
     // The robot's subsystems and commands are defined here...
 
-
     public Drivetrain drivetrain = new Drivetrain();
-    public static Joystick r = new Joystick(0);
-    public static Joystick l = new Joystick(1);
 
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
