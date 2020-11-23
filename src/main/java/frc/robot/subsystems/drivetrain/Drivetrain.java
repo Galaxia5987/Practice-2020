@@ -79,8 +79,8 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Set velocity of drivetrain.
      *
-     * @param velocityRight right velocity [meters/second].
-     * @param velocityLeft  left velocity [meters/second].
+     * @param velocityRight right velocity [m/s].
+     * @param velocityLeft  left velocity [m/s].
      */
     public void setVelocity(double velocityRight, double velocityLeft) {
         masterRight.set(ControlMode.Velocity, getUnitModel().toTicks100ms(velocityRight));
@@ -90,7 +90,7 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Get acceleration of drivetrain.
      *
-     * @return acceleration of drivetrain in [meters/seconds^2].
+     * @return acceleration of drivetrain in [m/s^2].
      */
     public double getAcceleration() {
         return Robot.navx.getWorldLinearAccelY() * Constants.G;
