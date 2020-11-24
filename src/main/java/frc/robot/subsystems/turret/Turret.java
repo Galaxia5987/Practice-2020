@@ -17,9 +17,11 @@ public class Turret extends SubsystemBase {
      */
     public Turret() {
         master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.TALON_TIMEOUT);
+        master.setSelectedSensorPosition(0);
         master.config_kP(0, Constants.Turret.KP, Constants.TALON_TIMEOUT);
         master.config_kI(0, Constants.Turret.KI, Constants.TALON_TIMEOUT);
         master.config_kD(0, Constants.Turret.KD, Constants.TALON_TIMEOUT);
+        master.setInverted(Ports.Turret.MASTER_INVERTED);
     }
 
     /**
