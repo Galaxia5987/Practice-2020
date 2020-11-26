@@ -16,4 +16,50 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    public static final int TALON_TIMEOUT = 10; //[ms].
+
+    public static class Turret {
+
+        public static final int TICKS_PER_DEGREE = (4096 / 360);
+
+        public static final int TURRET_JOYSTICK_DEGREES = 15; //angle of the turret will move in accordance to joystick position (0%-100%) every 20ms.
+
+        public static final double KP = 0.8;
+
+        public static final double KI = 0;
+
+        public static final double KD = 0;
+
+        public static final double TOLERANCE = 1;
+
+        public static final double MINIMUM_POSITION = -40; //[degrees]
+
+        public static final double MAXIMUM_POSITION = 270; //[degrees]
+
+        public static final double MINIMUM_DEADZONE = 38; //[degrees]
+
+        public static final double MAXIMUM_DEADZONE = 86; //[degrees]
+    }
+
+    public static final double G = 9.806;
+
+    public static class Drivetrain {
+        public static final int TICKS_PER_METER_HIGH_GEAR = 0;
+
+        public static final int TICKS_PER_METER_LOW_GEAR = 0;
+
+        public static final boolean MASTER_RIGHT_INVERTED = true;
+
+        public static final boolean SLAVE_RIGHT_INVERTED = true;
+
+        public static final boolean MASTER_RIGHT_SENSOR_PHASE = true;
+
+        public static final boolean MASTER_LEFT_INVERTED = false;
+
+        public static final boolean SLAVE_LEFT_INVERTED = false;
+
+        public static final boolean MASTER_LEFT_SENSOR_PHASE = false;
+
+        public static final double MINIMUM_SPEED = 0;
+    }
 }
