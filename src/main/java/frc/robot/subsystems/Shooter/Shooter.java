@@ -56,6 +56,6 @@ public class Shooter extends SubsystemBase {
      * @param velocity: the velocity output (m/s).
      */
     public void setVelocity(double velocity) {
-        master.set(ControlMode.Velocity, velocity);
+        master.set(ControlMode.Velocity, UnitModel.toTicks(velocity));
     }
 }
