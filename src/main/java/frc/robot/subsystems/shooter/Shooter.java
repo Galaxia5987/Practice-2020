@@ -23,19 +23,23 @@ public class Shooter extends SubsystemBase {
 
         master.setInverted(Ports.Shooter.IS_INVERTED_MASTER);
 
+
         slave1.follow(master);
         slave1.setInverted(Ports.Shooter.IS_INVERTED_SLAVE1);
 
         slave2.follow(master);
         slave2.setInverted(Ports.Shooter.IS_INVERTED_SLAVE2);
 
-        master.config_kP(Constants.Shooter.PID_SLOT, Constants.Shooter.KP);
-        master.config_kI(Constants.Shooter.PID_SLOT, Constants.Shooter.KI);
-        master.config_kD(Constants.Shooter.PID_SLOT, Constants.Shooter.KD);
-        master.config_kF(Constants.Shooter.PID_SLOT, Constants.Shooter.KF);
-
-        master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, 0);
+        master.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute, 0, Constants.TALON_TIMEOUT);
         master.setSensorPhase(Ports.Shooter.SENSOR_PHASE);
+
+        master.config_kP(Constants.Shooter.PID_SLOT, Constants.Shooter.KP, Constants.TALON_TIMEOUT);
+        master.config_kI(Constants.Shooter.PID_SLOT, Constants.Shooter.KI, Constants.TALON_TIMEOUT);
+        master.config_kD(Constants.Shooter.PID_SLOT, Constants.Shooter.KD, Constants.TALON_TIMEOUT);
+        master.config_kF(Constants.Shooter.PID_SLOT, Constants.Shooter.KF, Constants.TALON_TIMEOUT);
+
+        master.enableVoltageCompensation(true);
+        master.configVoltageCompSaturation(12);
     }
 
     public double getVelocity() {
