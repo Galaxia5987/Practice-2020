@@ -21,15 +21,14 @@ public class TurnTurret extends CommandBase {
 
     @Override
     public void execute() {
-        System.out.println(turret.getPosition());
         if(!turret.isInDeadzone(angle))
             turret.setAngle(angle);
     }
 
     @Override
     public boolean isFinished() {
-        return false;
-        //return Math.abs(turret.getPosition() - angle) < Constants.Turret.TOLERANCE;
+//        return false;
+        return Math.abs(turret.getPosition() - angle) < Constants.Turret.TOLERANCE;
     }
 
     @Override

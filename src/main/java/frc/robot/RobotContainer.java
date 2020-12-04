@@ -12,13 +12,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.drivetrain.Drivetrain;
-<<<<<<< Updated upstream
-=======
 import frc.robot.subsystems.drivetrain.commands.JoystickDrive;
 import frc.robot.subsystems.turret.Turret;
 import frc.robot.subsystems.turret.commands.JoystickTurret;
 import frc.robot.subsystems.turret.commands.TurnTurret;
->>>>>>> Stashed changes
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -27,37 +25,32 @@ import frc.robot.subsystems.turret.commands.TurnTurret;
  * (including subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-    public static XboxController Xbox = new XboxController(1);
+    public static XboxController Xbox = new XboxController(0);
     public JoystickButton a = new JoystickButton(Xbox, XboxController.Button.kA.value);
     public JoystickButton b = new JoystickButton(Xbox, XboxController.Button.kB.value);
-<<<<<<< Updated upstream
-=======
     public static Joystick r = new Joystick(1);
     public static Joystick l = new Joystick(2);
     public JoystickButton c = new JoystickButton(r, 3);
->>>>>>> Stashed changes
+    public JoystickButton d = new JoystickButton(r, 4);
+    public JoystickButton f = new JoystickButton(r, 5);
+    public JoystickButton s = new JoystickButton(r, 6);
     // The robot's subsystems and commands are defined here...
 
 
     public Drivetrain drivetrain = new Drivetrain();
-<<<<<<< Updated upstream
-    public static Joystick r = new Joystick(0);
-    public static Joystick l = new Joystick(1);
-=======
+
+
     public Turret turret = new Turret();
->>>>>>> Stashed changes
+
 
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
      */
     public RobotContainer() {
         // Configure the button bindings
-<<<<<<< Updated upstream
-=======
 //        drivetrain.setDefaultCommand(new JoystickDrive(drivetrain));
-        //turret.setDefaultCommand(new JoystickTurret(turret));
+      //  turret.setDefaultCommand(new JoystickTurret(turret));
 
->>>>>>> Stashed changes
         configureButtonBindings();
     }
 
@@ -68,7 +61,10 @@ public class RobotContainer {
      * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
     private void configureButtonBindings() {
-        c.whenPressed(new TurnTurret(turret, 10));
+        c.whenPressed(new TurnTurret(turret, 20));
+        d.whenPressed(new TurnTurret(turret, 0));
+        f.whenPressed(new TurnTurret(turret, 30));
+        s.whenPressed(new TurnTurret(turret, -30));
     }
 
     /**

@@ -22,6 +22,7 @@ public class Turret extends SubsystemBase {
         master.config_kI(0, Constants.Turret.KI, Constants.TALON_TIMEOUT);
         master.config_kD(0, Constants.Turret.KD, Constants.TALON_TIMEOUT);
         master.setInverted(Ports.Turret.MASTER_INVERTED);
+        master.setSensorPhase(Ports.Turret.SENSOR_PHASE_INVERTED);
     }
 
     /**
@@ -77,7 +78,7 @@ public class Turret extends SubsystemBase {
 
     @Override
     public void periodic() {
-        // This method will be called once per scheduler run
+        System.out.println(this.getPosition());
     }
 }
 
