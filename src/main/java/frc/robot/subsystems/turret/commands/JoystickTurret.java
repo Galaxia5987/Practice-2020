@@ -21,7 +21,7 @@ public class JoystickTurret extends CommandBase {
     @Override
     public void execute() {
         System.out.println(turret.getPosition());
-        turret.setAngle(RobotContainer.r.getX() * Constants.Turret.TURRET_JOYSTICK_DEGREES + turret.getPosition());
+        turret.setAngle(RobotContainer.xbox.getX() * Constants.Turret.TURRET_JOYSTICK_DEGREES + turret.getPosition());
     }
 
     @Override
