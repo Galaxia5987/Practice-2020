@@ -16,4 +16,18 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    public static int TALON_TIMEOUT = 10; //[ms]
+    public static class Shooter {
+
+        
+        public static final double TICKS_PER_ROTATION = 4096;//TODO: placeholder
+        public static final double DISTANCE = 3;//TODO:placeholder
+        public static final double VEL_THRESHOLD = 1.5; //TODO:placeholder
+
+        public static final int PID_SLOT = 0;
+        public static final double KP = 0;
+        public static final double KI = 0;
+        public static final double KD = 0;
+        public static final double KF = 0;
+    }
 }
